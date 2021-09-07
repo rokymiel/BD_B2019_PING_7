@@ -56,3 +56,4 @@
 ## Схема
 [Ссылка на диаграмму](https://drawsql.app/hse-7/diagrams/1xhsebet)
 
+![](diagram.png)
