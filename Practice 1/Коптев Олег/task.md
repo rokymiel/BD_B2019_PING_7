@@ -65,4 +65,4 @@
 
 ### Схема объектной модели
 
-![схема](https://ibb.co/mcmmBfn)
+![схема](https://i.ibb.co/mcmmBfn/draw-SQL-export-2021-09-11-17-54.png)
