@@ -1414,63 +1414,12 @@
 									"left": 168,
 									"top": 376,
 									"width": 42,
-									"height": 33,
+									"height": 73,
 									"nameLabel": {
 										"$ref": "AAAAAAF76RViEXXPL4w="
 									},
 									"columnCompartment": {
 										"$ref": "AAAAAAF76RViEXXQ7Ew="
-									}
-								},
-								{
-									"_type": "ERDEntityView",
-									"_id": "AAAAAAF76RV51XXbEr8=",
-									"_parent": {
-										"$ref": "AAAAAAF76QjhV3UDzPs="
-									},
-									"model": {
-										"$ref": "AAAAAAF76RV51XXZcaI="
-									},
-									"subViews": [
-										{
-											"_type": "LabelView",
-											"_id": "AAAAAAF76RV51XXc9q0=",
-											"_parent": {
-												"$ref": "AAAAAAF76RV51XXbEr8="
-											},
-											"font": "Arial;13;1",
-											"left": 232,
-											"top": 333,
-											"width": 77,
-											"height": 13,
-											"text": "Команда 1"
-										},
-										{
-											"_type": "ERDColumnCompartmentView",
-											"_id": "AAAAAAF76RV51XXdIhI=",
-											"_parent": {
-												"$ref": "AAAAAAF76RV51XXbEr8="
-											},
-											"model": {
-												"$ref": "AAAAAAF76RV51XXZcaI="
-											},
-											"font": "Arial;13;0",
-											"left": 232,
-											"top": 351,
-											"width": 77,
-											"height": 10
-										}
-									],
-									"font": "Arial;13;0",
-									"left": 232,
-									"top": 328,
-									"width": 77,
-									"height": 33,
-									"nameLabel": {
-										"$ref": "AAAAAAF76RV51XXc9q0="
-									},
-									"columnCompartment": {
-										"$ref": "AAAAAAF76RV51XXdIhI="
 									}
 								},
 								{
@@ -1490,11 +1439,11 @@
 												"$ref": "AAAAAAF76RWTl3Xozbo="
 											},
 											"font": "Arial;13;1",
-											"left": 240,
-											"top": 429,
+											"left": 336,
+											"top": 381,
 											"width": 77,
 											"height": 13,
-											"text": "Команда 2"
+											"text": "Команда"
 										},
 										{
 											"_type": "ERDColumnCompartmentView",
@@ -1506,17 +1455,17 @@
 												"$ref": "AAAAAAF76RWTl3XmKec="
 											},
 											"font": "Arial;13;0",
-											"left": 240,
-											"top": 447,
+											"left": 336,
+											"top": 399,
 											"width": 77,
 											"height": 10
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 240,
-									"top": 424,
+									"left": 336,
+									"top": 376,
 									"width": 77,
-									"height": 33,
+									"height": 73,
 									"nameLabel": {
 										"$ref": "AAAAAAF76RWTl3XpZeM="
 									},
@@ -1577,88 +1526,6 @@
 								},
 								{
 									"_type": "ERDRelationshipView",
-									"_id": "AAAAAAF76RYanXYSYyE=",
-									"_parent": {
-										"$ref": "AAAAAAF76QjhV3UDzPs="
-									},
-									"model": {
-										"$ref": "AAAAAAF76RYanHYO0gc="
-									},
-									"subViews": [
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF76RYanXYT4Qk=",
-											"_parent": {
-												"$ref": "AAAAAAF76RYanXYSYyE="
-											},
-											"font": "Arial;13;0",
-											"left": 219,
-											"top": 395,
-											"width": 41,
-											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 15,
-											"hostEdge": {
-												"$ref": "AAAAAAF76RYanXYSYyE="
-											},
-											"edgePosition": 1,
-											"text": "Играет"
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF76RYanXYUhMA=",
-											"_parent": {
-												"$ref": "AAAAAAF76RYanXYSYyE="
-											},
-											"font": "Arial;13;0",
-											"left": 255,
-											"top": 379,
-											"height": 13,
-											"alpha": 0.5235987755982988,
-											"distance": 30,
-											"hostEdge": {
-												"$ref": "AAAAAAF76RYanXYSYyE="
-											},
-											"edgePosition": 2
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAF76RYanXYVSW8=",
-											"_parent": {
-												"$ref": "AAAAAAF76RYanXYSYyE="
-											},
-											"font": "Arial;13;0",
-											"left": 234,
-											"top": 394,
-											"height": 13,
-											"alpha": -0.5235987755982988,
-											"distance": 30,
-											"hostEdge": {
-												"$ref": "AAAAAAF76RYanXYSYyE="
-											}
-										}
-									],
-									"font": "Arial;13;0",
-									"head": {
-										"$ref": "AAAAAAF76RViEXXOnEs="
-									},
-									"tail": {
-										"$ref": "AAAAAAF76RV51XXbEr8="
-									},
-									"lineStyle": 2,
-									"points": "240:360;240:386;209:386",
-									"nameLabel": {
-										"$ref": "AAAAAAF76RYanXYT4Qk="
-									},
-									"tailNameLabel": {
-										"$ref": "AAAAAAF76RYanXYUhMA="
-									},
-									"headNameLabel": {
-										"$ref": "AAAAAAF76RYanXYVSW8="
-									}
-								},
-								{
-									"_type": "ERDRelationshipView",
 									"_id": "AAAAAAF76RZACHYqwfU=",
 									"_parent": {
 										"$ref": "AAAAAAF76QjhV3UDzPs="
@@ -1674,17 +1541,17 @@
 												"$ref": "AAAAAAF76RZACHYqwfU="
 											},
 											"font": "Arial;13;0",
-											"left": 160,
-											"top": 426,
-											"width": 41,
+											"left": 223,
+											"top": 370,
+											"width": 99,
 											"height": 13,
-											"alpha": -3.618938176676449,
-											"distance": 32.64965543462902,
+											"alpha": 1.5707957017948966,
+											"distance": 16,
 											"hostEdge": {
 												"$ref": "AAAAAAF76RZACHYqwfU="
 											},
 											"edgePosition": 1,
-											"text": "Играет"
+											"text": "Вторая команда"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1693,8 +1560,8 @@
 												"$ref": "AAAAAAF76RZACHYqwfU="
 											},
 											"font": "Arial;13;0",
-											"left": 224,
-											"top": 427,
+											"left": 234,
+											"top": 371,
 											"height": 13,
 											"alpha": 0.5235987755982988,
 											"distance": 30,
@@ -1710,8 +1577,8 @@
 												"$ref": "AAAAAAF76RZACHYqwfU="
 											},
 											"font": "Arial;13;0",
-											"left": 214,
-											"top": 427,
+											"left": 310,
+											"top": 371,
 											"height": 13,
 											"alpha": -0.5235987755982988,
 											"distance": 30,
@@ -1728,7 +1595,7 @@
 										"$ref": "AAAAAAF76RViEXXOnEs="
 									},
 									"lineStyle": 2,
-									"points": "209:408;209:448;240:448",
+									"points": "209:392;336:392",
 									"nameLabel": {
 										"$ref": "AAAAAAF76RZACHYr9a4="
 									},
@@ -2250,6 +2117,88 @@
 									"headNameLabel": {
 										"$ref": "AAAAAAF76RiMZXcbiEU="
 									}
+								},
+								{
+									"_type": "ERDRelationshipView",
+									"_id": "AAAAAAF78toEroj+PE0=",
+									"_parent": {
+										"$ref": "AAAAAAF76QjhV3UDzPs="
+									},
+									"model": {
+										"$ref": "AAAAAAF78toEroj6IcI="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAF78toEroj/9v8=",
+											"_parent": {
+												"$ref": "AAAAAAF78toEroj+PE0="
+											},
+											"font": "Arial;13;0",
+											"left": 223,
+											"top": 403,
+											"width": 99,
+											"height": 13,
+											"alpha": 1.5707963267948966,
+											"distance": 15,
+											"hostEdge": {
+												"$ref": "AAAAAAF78toEroj+PE0="
+											},
+											"edgePosition": 1,
+											"text": "Первая команда"
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAF78toErokAN1Y=",
+											"_parent": {
+												"$ref": "AAAAAAF78toEroj+PE0="
+											},
+											"font": "Arial;13;0",
+											"left": 234,
+											"top": 403,
+											"height": 13,
+											"alpha": 0.5235987755982988,
+											"distance": 30,
+											"hostEdge": {
+												"$ref": "AAAAAAF78toEroj+PE0="
+											},
+											"edgePosition": 2
+										},
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAF78toErokBnwk=",
+											"_parent": {
+												"$ref": "AAAAAAF78toEroj+PE0="
+											},
+											"font": "Arial;13;0",
+											"left": 310,
+											"top": 403,
+											"height": 13,
+											"alpha": -0.5235987755982988,
+											"distance": 30,
+											"hostEdge": {
+												"$ref": "AAAAAAF78toEroj+PE0="
+											}
+										}
+									],
+									"font": "Arial;13;0",
+									"head": {
+										"$ref": "AAAAAAF76RWTl3Xozbo="
+									},
+									"tail": {
+										"$ref": "AAAAAAF76RViEXXOnEs="
+									},
+									"lineStyle": 2,
+									"points": "209:424;336:424",
+									"nameLabel": {
+										"$ref": "AAAAAAF78toEroj/9v8="
+									},
+									"tailNameLabel": {
+										"$ref": "AAAAAAF78toErokAN1Y="
+									},
+									"headNameLabel": {
+										"$ref": "AAAAAAF78toErokBnwk="
+									}
 								}
 							]
 						},
@@ -2448,7 +2397,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF76RViEHXM7hc="
 									},
-									"name": "Играет",
+									"name": "Вторая команда",
 									"end1": {
 										"_type": "ERDRelationshipEnd",
 										"_id": "AAAAAAF76RZACHYnxAs=",
@@ -2464,6 +2413,34 @@
 										"_id": "AAAAAAF76RZACHYo5do=",
 										"_parent": {
 											"$ref": "AAAAAAF76RZACHYmzYo="
+										},
+										"reference": {
+											"$ref": "AAAAAAF76RWTl3XmKec="
+										}
+									}
+								},
+								{
+									"_type": "ERDRelationship",
+									"_id": "AAAAAAF78toEroj6IcI=",
+									"_parent": {
+										"$ref": "AAAAAAF76RViEHXM7hc="
+									},
+									"name": "Первая команда",
+									"end1": {
+										"_type": "ERDRelationshipEnd",
+										"_id": "AAAAAAF78toEroj79x0=",
+										"_parent": {
+											"$ref": "AAAAAAF78toEroj6IcI="
+										},
+										"reference": {
+											"$ref": "AAAAAAF76RViEHXM7hc="
+										}
+									},
+									"end2": {
+										"_type": "ERDRelationshipEnd",
+										"_id": "AAAAAAF78toEroj8RqU=",
+										"_parent": {
+											"$ref": "AAAAAAF78toEroj6IcI="
 										},
 										"reference": {
 											"$ref": "AAAAAAF76RWTl3XmKec="
@@ -2516,7 +2493,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF76QjhV3UC2DE="
 							},
-							"name": "Команда 2"
+							"name": "Команда"
 						},
 						{
 							"_type": "ERDEntity",
