@@ -26,5 +26,5 @@
 Смоделируйте E/R-модель в виде E/R диаграммы
 
 ### Решение
-Entity.Type принимает значения: 'Entity', 'Relationship', 'Attribute', 'Key', 'Role'; таким образом описывает все возможные составляющие ER диаграммы.
+Entity.Type принимает значения: 'Entity', 'Relationship', 'Attribute', 'Key', 'Role'; таким образом описывает все возможные составляющие ER диаграммы.  
 ![решение задачи 3](https://lucid.app/publicSegments/view/53ee9b64-4402-4a6c-ba67-60804366cc3f/image.png)
