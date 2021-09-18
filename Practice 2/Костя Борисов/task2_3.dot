@@ -1,0 +1,13 @@
+digraph ER {
+  #layout=neato;
+  Мужчина [shape=record, label="{Мужчина}"];
+  Женщина [shape=record, label="{Женщина}"];
+
+  #rankdir=LR;
+  splines=ortho;
+  edge [arrowtail=inv, arrowhead=inv, dir=back];
+  Мужчина -> Мужчина [xlabel="Отец"];
+  Женщина -> Мужчина [xlabel="Отец"];
+  Мужчина -> Женщина [xlabel="Мать"];
+  Женщина -> Женщина [xlabel="Мать"];
+}

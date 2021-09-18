@@ -1,0 +1,26 @@
+digraph ER {
+  #layout=neato;
+
+  Сущность [shape=none, label=<<TABLE PORT="t" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="3">Сущность</TD></TR><HR/>
+    <TR><TD></TD><VR/><TD>Название</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>Слабость</TD><VR/><TD></TD></TR>
+  </TABLE>>];
+  Связь [shape=none, label=<<TABLE PORT="t" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="3">Связь</TD></TR><HR/>
+    <TR><TD></TD><VR/><TD>Описание</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>Кардинальность начала</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>Кардинальность конца</TD><VR/><TD></TD></TR>
+  </TABLE>>];
+  Свойство [shape=none, label=<<TABLE PORT="t" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="3">Атрибут</TD></TR><HR/>
+    <TR><TD></TD><VR/><TD>Название</TD><VR/><TD></TD></TR>
+  </TABLE>>];
+
+  splines=ortho;
+  edge [arrowtail=inv, arrowhead=inv];
+  Сущность:t -> Связь:t [xlabel="Начало"];
+  Сущность:t -> Связь:t [label="Конец"];
+  Сущность:t -> Свойство:t [xlabel="Имеет"];
+  {rank = same; Сущность; Свойство};
+}

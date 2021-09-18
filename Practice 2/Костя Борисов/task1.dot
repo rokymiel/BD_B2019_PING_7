@@ -1,0 +1,48 @@
+digraph ER {
+  #layout=neato;
+
+  Категория [shape=none, label=<<TABLE PORT="t" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="3">Категория</TD></TR><HR/>
+    <TR><TD></TD><VR/><TD>Имя категории</TD><VR/><TD></TD></TR>
+  </TABLE>>];
+  Экземпляр [shape=none, label=<<TABLE PORT="t" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="3">Экземпляр</TD></TR><HR/>
+    <TR><TD></TD><VR/><TD>ISBN</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>Уникальный номер копии</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>Положение на полке</TD><VR/><TD></TD></TR>
+  </TABLE>>];
+  Книга [shape=none, label=<<TABLE PORT="t" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="3">Книга</TD></TR><HR/>
+    <TR><TD></TD><VR/><TD>ISBN</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>Год</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>Название</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>Автор</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>Количество страниц</TD><VR/><TD></TD></TR>
+  </TABLE>>];
+  Издательство [shape=none, label=<<TABLE PORT="t" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="3">Издательство</TD></TR><HR/>
+    <TR><TD></TD><VR/><TD>Имя</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>    Адрес    </TD><VR/><TD></TD></TR>
+  </TABLE>>];
+  Читатель [shape=none, label=<<TABLE PORT="t" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="3">Читатель</TD></TR><HR/>
+    <TR><TD></TD><VR/><TD>Уникальный номер</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>Фамилия</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>Имя</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>Адрес</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD>День рождения</TD><VR/><TD></TD></TR>
+  </TABLE>>];
+
+  splines=ortho;
+  edge [arrowtail=inv, arrowhead=inv, dir=back];
+  Экземпляр:t -> Книга:t [xlabel="Экземпляры"];
+  Категория:t -> Категория:t [label="Подкатегории"];
+  Книга:t -> Издательство:t [label="Издаётся"];
+  Книга:t -> Категория:t [xlabel="Присвоена к", dir=both];
+
+  Взятие [shape=diamond, style=filled, color=lightgrey, label="взял"];
+  "Дата возврата" [shape=ellipse, style=filled, color=lightyellow];
+  Читатель:t -> Взятие [dir=none];
+  Экземпляр:t -> Взятие;
+  Взятие -> "Дата возврата" [dir=none];
+}

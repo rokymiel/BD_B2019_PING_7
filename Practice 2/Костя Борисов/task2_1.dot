@@ -1,0 +1,15 @@
+digraph ER {
+  #layout=neato;
+  Квартира [shape=record, label="{Квартира}"];
+  Дом [shape=record, label="{Дом}"];
+  Улица [shape=record, label="{Улица}"];
+  Город [shape=record, label="{Город}"];
+  Страна [shape=record, label="{Страна}"];
+
+  rankdir=LR;
+  #splines=ortho;
+  edge [arrowtail=inv, arrowhead=inv, dir=back];
+  Квартира -> Дом [label="Находится в"];
+  Дом -> Улица [label="Находится на"];
+  Улица -> Город -> Страна [label="Находится в"];
+}
