@@ -563,28 +563,13 @@
 													"top": 267,
 													"width": 128,
 													"height": 13
-												},
-												{
-													"_type": "ERDColumnView",
-													"_id": "AAAAAAF76QAT5c0Qdq0=",
-													"_parent": {
-														"$ref": "AAAAAAF76PqYZsyzd4c="
-													},
-													"model": {
-														"$ref": "AAAAAAF76QAT3M0Nqx4="
-													},
-													"font": "Arial;13;0",
-													"left": 301,
-													"top": 282,
-													"width": 128,
-													"height": 13
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 296,
 											"top": 247,
 											"width": 138,
-											"height": 53
+											"height": 38
 										}
 									],
 									"font": "Arial;13;0",
@@ -1408,14 +1393,6 @@
 									},
 									"name": "Номер копии",
 									"length": 0
-								},
-								{
-									"_type": "ERDColumn",
-									"_id": "AAAAAAF76QAT3M0Nqx4=",
-									"_parent": {
-										"$ref": "AAAAAAF76PqYZcyvyGA="
-									},
-									"name": "Column1"
 								}
 							]
 						},
