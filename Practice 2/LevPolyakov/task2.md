@@ -1,5 +1,5 @@
-####Задача 1
+#### Задача 1
 ![diagram1](diagram1.png)
 
-####Задача 2
+#### Задача 2
 ![diagram2](diagram2.png)
