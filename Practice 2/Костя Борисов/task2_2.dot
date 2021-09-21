@@ -6,7 +6,7 @@ digraph ER {
 
   splines=ortho;
   edge [arrowtail=inv, arrowhead=inv, dir=back];
-  Арбитр -> Игра [xlabel="Судит"];
+  Арбитр -> Игра [xlabel="Судит", dir=none];
   Команда -> Игра [xlabel="Первая"];
   Команда -> Игра [xlabel="Вторая"];
 }

@@ -7,13 +7,13 @@ digraph ER {
   </TABLE>>];
   Экземпляр [shape=none, label=<<TABLE PORT="t" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="3">Экземпляр</TD></TR><HR/>
-    <TR><TD></TD><VR/><TD>ISBN</TD><VR/><TD></TD></TR>
-    <TR><TD></TD><VR/><TD>Уникальный номер копии</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD><U>ISBN</U></TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD><U>Уникальный номер копии</U></TD><VR/><TD></TD></TR>
     <TR><TD></TD><VR/><TD>Положение на полке</TD><VR/><TD></TD></TR>
   </TABLE>>];
   Книга [shape=none, label=<<TABLE PORT="t" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="3">Книга</TD></TR><HR/>
-    <TR><TD></TD><VR/><TD>ISBN</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD><U>ISBN</U></TD><VR/><TD></TD></TR>
     <TR><TD></TD><VR/><TD>Год</TD><VR/><TD></TD></TR>
     <TR><TD></TD><VR/><TD>Название</TD><VR/><TD></TD></TR>
     <TR><TD></TD><VR/><TD>Автор</TD><VR/><TD></TD></TR>
@@ -26,7 +26,7 @@ digraph ER {
   </TABLE>>];
   Читатель [shape=none, label=<<TABLE PORT="t" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="3">Читатель</TD></TR><HR/>
-    <TR><TD></TD><VR/><TD>Уникальный номер</TD><VR/><TD></TD></TR>
+    <TR><TD></TD><VR/><TD><U>Уникальный номер</U></TD><VR/><TD></TD></TR>
     <TR><TD></TD><VR/><TD>Фамилия</TD><VR/><TD></TD></TR>
     <TR><TD></TD><VR/><TD>Имя</TD><VR/><TD></TD></TR>
     <TR><TD></TD><VR/><TD>Адрес</TD><VR/><TD></TD></TR>
@@ -42,7 +42,7 @@ digraph ER {
 
   Взятие [shape=diamond, style=filled, color=lightgrey, label="взял"];
   "Дата возврата" [shape=ellipse, style=filled, color=lightyellow];
-  Читатель:t -> Взятие [dir=none];
+  Читатель:t -> Взятие;
   Экземпляр:t -> Взятие;
   Взятие -> "Дата возврата" [dir=none];
 }
