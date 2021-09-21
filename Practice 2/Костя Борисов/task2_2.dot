@@ -1,12 +1,9 @@
-digraph ER {
-  #layout=neato;
+graph ER {
   Арбитр [shape=box];
   Команда [shape=box];
-  Игра [shape=diamond, style=filled, color=lightgrey, label="игра"];
+  Игра [shape=diamond, style=filled, color=lightgrey, label="играют"];
 
-  splines=ortho;
-  edge [arrowtail=inv, arrowhead=inv, dir=back];
-  Арбитр -> Игра [xlabel="Судит", dir=none];
-  Команда -> Игра [xlabel="Первая"];
-  Команда -> Игра [xlabel="Вторая"];
+  Арбитр -- Игра [label="1"];
+  Команда -- Игра [label="N"];
+  Команда -- Игра [label="M"];
 }
