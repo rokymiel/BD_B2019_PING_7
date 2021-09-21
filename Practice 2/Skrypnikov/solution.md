@@ -2,10 +2,10 @@
 За UNREGISTRED прощу прощения, тут должен лежать файлик для StarUML.
 
 ### Задача 1
-![](Task1.png)
+![](Task11.png)
 
 ### Задача 2
-![](Task2.png)
+![](Task12.png)
 
 ### Задача 3
-![](Task3.png)
+![](Task13.png)
