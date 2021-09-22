@@ -1,15 +1,15 @@
 ### Задание №1
-![Task 2 1](https://user-images.githubusercontent.com/55440084/133931087-f112bb70-4647-40f8-abf2-4216cf03769c.png)
+![Task 2 1](https://user-images.githubusercontent.com/55440084/134370746-937d36b1-8db6-474a-a753-607006b65592.png)
 
 ### Задание №2
 #### Часть №1
-![Task 2 2 1](https://user-images.githubusercontent.com/55440084/133927299-98c65e46-e1c5-4c9d-b6c9-35ade4d337ed.png)
+![Task 2 2 1](https://user-images.githubusercontent.com/55440084/134370768-377e6204-a3fd-49d1-827e-f6a470e4ffca.png)
 
 #### Часть №2
-![Task 2 2 2](https://user-images.githubusercontent.com/55440084/133927363-d7db1eb2-17ab-4049-a4e3-74ea21b04efa.png)
+![Task 2 2 2](https://user-images.githubusercontent.com/55440084/134370776-4a60a573-353e-4e38-ac4f-428a031ad44f.png)
 
 #### Часть №3
-![Task 2 2 3](https://user-images.githubusercontent.com/55440084/133931006-1e10520c-0210-4a65-82ae-fe83af289f00.png)
+![Task 2 2 3](https://user-images.githubusercontent.com/55440084/134370784-eeac027f-77c3-4838-b571-f3f1680f276d.png)
 
 ### Задание №3
-![Task 2 3](https://user-images.githubusercontent.com/55440084/133930885-bb9f223a-ab27-48b3-a640-df6b60e76e5b.png)
+![Task 2 3](https://user-images.githubusercontent.com/55440084/134370793-22f8600c-62ee-45f4-88f7-d05dfe59852b.png)
