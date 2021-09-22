@@ -712,6 +712,58 @@
 							"headNameLabel": {
 								"$ref": "AAAAAAF77k73zRxIITE="
 							}
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAF8CPf+FhVjS9k=",
+							"_parent": {
+								"$ref": "AAAAAAF77kporRqNj2c="
+							},
+							"font": "Arial;13;0",
+							"left": 144,
+							"top": 480,
+							"width": 71.90234375,
+							"height": 25,
+							"text": "находится"
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAF8DQUkRA//zus=",
+							"_parent": {
+								"$ref": "AAAAAAF77kporRqNj2c="
+							},
+							"font": "Arial;13;0",
+							"left": 296,
+							"top": 400,
+							"width": 82.86474609375,
+							"height": 25,
+							"text": "расположен"
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAF8DQVodBAFqQ4=",
+							"_parent": {
+								"$ref": "AAAAAAF77kporRqNj2c="
+							},
+							"font": "Arial;13;0",
+							"left": 432,
+							"top": 320,
+							"width": 90.0947265625,
+							"height": 25,
+							"text": "расположена"
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAF8DQWcHRAKD4w=",
+							"_parent": {
+								"$ref": "AAAAAAF77kporRqNj2c="
+							},
+							"font": "Arial;13;0",
+							"left": 592,
+							"top": 296,
+							"width": 71.90234375,
+							"height": 25,
+							"text": "находится"
 						}
 					]
 				},
