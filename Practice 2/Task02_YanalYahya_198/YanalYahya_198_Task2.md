@@ -10,25 +10,27 @@
 
 **Решение:**
 
-![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/main/Practice%202/1.jpg?raw=true)
+![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/Task2/Practice%202/Task02_YanalYahya_198/1.jpg?raw=true)
 
 **Задача 2.** Смоделируйте следующие отношения в E/R.
 
 - Квартира расположена в доме на улице в городе в стране
-**Решение:**
+  **Решение:**
 
-![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/main/Practice%202/2.1.jpg?raw=true)
+![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/Task2/Practice%202/Task02_YanalYahya_198/2.1.jpg?raw=true)
+
 - Две команды играют друг против друга в футбол под руководством арбитра
-**Решение:**
+  **Решение:**
 
-![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/main/Practice%202/2.2_.jpg?raw=true)
+![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/Task2/Practice%202/Task02_YanalYahya_198/2.2_.jpg?raw=true)
+
 - У каждого человека (мужчины и женщины) есть отец и мать
-**Решение:**
+  **Решение:**
 
-![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/main/Practice%202/2.3.jpg?raw=true)
+![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/Task2/Practice%202/Task02_YanalYahya_198/2.3.jpg?raw=true)
 
 **Задача 3.** Смоделируйте E/R-модель в виде E/R диаграммы
 
 **Решение:**
 
-![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/main/Practice%202/3.jpg?raw=true)
+![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/Task2/Practice%202/Task02_YanalYahya_198/3.jpg?raw=true)
