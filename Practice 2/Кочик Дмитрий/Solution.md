@@ -12,4 +12,4 @@
 ![Task 2 2 3](https://user-images.githubusercontent.com/55440084/134370784-eeac027f-77c3-4838-b571-f3f1680f276d.png)
 
 ### Задание №3
-![Task 2 3](https://user-images.githubusercontent.com/55440084/134523182-36887960-cb04-4cd7-98af-58b9e860b239.png)
+![Task 2 3](https://user-images.githubusercontent.com/55440084/134572066-c94cf84e-fff9-4f8e-bbf5-19532f95cebc.png)
