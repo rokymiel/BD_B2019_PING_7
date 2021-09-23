@@ -1,5 +1,5 @@
 ### Задание №1
-![Task 2 1](https://user-images.githubusercontent.com/55440084/134370746-937d36b1-8db6-474a-a753-607006b65592.png)
+![Task 2 1](https://user-images.githubusercontent.com/55440084/134522690-682fb417-cf3a-4574-aede-378276c99f98.png)
 
 ### Задание №2
 #### Часть №1
@@ -12,4 +12,4 @@
 ![Task 2 2 3](https://user-images.githubusercontent.com/55440084/134370784-eeac027f-77c3-4838-b571-f3f1680f276d.png)
 
 ### Задание №3
-![Task 2 3](https://user-images.githubusercontent.com/55440084/134370793-22f8600c-62ee-45f4-88f7-d05dfe59852b.png)
+![Task 2 3](https://user-images.githubusercontent.com/55440084/134523182-36887960-cb04-4cd7-98af-58b9e860b239.png)
