@@ -9,30 +9,30 @@
 
    2.1:
 
-   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/main/Practice%203/Task03_YanalYahya_198/LibraryScheme.png?raw=true)
+   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/Task3/Practice%203/Task03_YanalYahya_198/LibraryScheme.png?raw=true)
 
    2.2.1:
 
-   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/main/Practice%203/Task03_YanalYahya_198/CountriesScheme.png?raw=true)
+   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/Task3/Practice%203/Task03_YanalYahya_198/CountriesScheme.png?raw=true)
 
    2.2.2:
 
-   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/main/Practice%203/Task03_YanalYahya_198/FootballScheme.png?raw=true)
+   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/Task3/Practice%203/Task03_YanalYahya_198/FootballScheme.png?raw=true)
 
    2.2.3:
 
-   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/main/Practice%203/Task03_YanalYahya_198/FamiliesScheme.png?raw=true)
+   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/Task3/Practice%203/Task03_YanalYahya_198/FamiliesScheme.png?raw=true)
 
    2.3:
 
-   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/main/Practice%203/Task03_YanalYahya_198/E_RSheme.png?raw=true)
+   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/Task3/Practice%203/Task03_YanalYahya_198/E_RSheme.png?raw=true)
 
 3. Переведите приведенные диаграммы ER в реляционные схемы.
 
    3.1. https://imgur.com/w2iDI1o
 
-   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/main/Practice%203/Task03_YanalYahya_198/TrainStationScheme.png?raw=true)
+   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/Task3/Practice%203/Task03_YanalYahya_198/TrainStationScheme.png?raw=true)
 
    3.2. https://imgur.com/oFBM5pp
 
-   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/main/Practice%203/Task03_YanalYahya_198/Hospital.png?raw=true)
+   ![alt text](https://github.com/yyahya-2000/BD_B2019_PING_7/blob/Task3/Practice%203/Task03_YanalYahya_198/Hospital.png?raw=true)
