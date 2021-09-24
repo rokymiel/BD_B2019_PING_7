@@ -11,9 +11,9 @@ Reader({[<ins>number: int</ins>, surname: string, name: string, address: string,
   
 Book({[<ins>isbn: int</ins>, year: int, name: string, author: string, pages_number: int, publisher_id: int]})
   
-Publisher({[<ins>id:  int, name: string, address: string]})
+Publisher({[<ins>id:  int</ins>, name: string, address: string]})
   
-belongs({[<ins>book_isbn: int</ins>, category_name: string</ins>]})
+belongs({[<ins>book_isbn: int, category_name: string</ins>]})
   
 Category({[<ins>name: string</ins>, parent_category_name: string]})
 ### Задача 2.2
