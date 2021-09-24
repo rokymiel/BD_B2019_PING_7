@@ -41,6 +41,13 @@ Male({[<ins>id: in</ins>t, mother_id: int, father_id: int]})
 
 Female({[<ins>id: int</ins>, mother_id: int, father_id: int]})
 ### Задача 2.3
+Attribute({[<ins>id: int</ins>, name: string, isKey: bool, entity_name: string]})
+
+Entity({[<ins>name: string</ins>]})
+
+Relationship({[<ins>name: string</ins>]})
+
+participate({[<ins>entity_name: string, relationship_name: string</ins>, functionality: string, role: string, min: int, max: int]})
 ## Задача 3
 ### Задача 3.1
 ### Задача 3.1
