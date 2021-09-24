@@ -50,4 +50,25 @@ Relationship({[<ins>name: string</ins>]})
 participate({[<ins>entity_name: string, relationship_name: string</ins>, functionality: string, role: string, min: int, max: int]})
 ## Задача 3
 ### Задача 3.1
+Station({[<ins>name</ins>, traks, city]})
+
+City({[<ins>region, name</ins>]})
+
+Train({[<ins>trainNr</ins>, length, start_station_name, end_station_name]})
+
+Connected({[<ins>trainNr, station_name</ins>, arrival_time, departure_time, next_station_name]})
 ### Задача 3.1
+StationPersonell({[<ins>persNr</ins>, name, works_for_staNr]})
+
+Caregiver({[<ins>persNr</ins>, qualification]})
+
+Doctor({[<ins>persNr</ins>, area, rank]})
+
+Station({[<ins>staNr</ins>, name]})
+
+Room({[<ins>roomNr</ins>, beds, staNr]})
+
+Patient({[<ins>patientNr</ins>, name, disease, doctorNr]})
+
+Addmision({[<ins>patientNr</ins>, roomNr, from, admission_from, amission_to]})
+
