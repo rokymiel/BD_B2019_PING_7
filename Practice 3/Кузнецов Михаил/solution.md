@@ -57,7 +57,7 @@ City({[<ins>region, name</ins>]})
 Train({[<ins>trainNr</ins>, length, start_station_name, end_station_name]})
 
 Connected({[<ins>trainNr, station_name</ins>, arrival_time, departure_time, next_station_name]})
-### Задача 3.1
+### Задача 3.2
 StationPersonell({[<ins>persNr</ins>, name, works_for_staNr]})
 
 Caregiver({[<ins>persNr</ins>, qualification]})
