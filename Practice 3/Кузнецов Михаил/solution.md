@@ -17,6 +17,24 @@ belongs({[<ins>book_isbn: int, category_name: string</ins>]})
   
 Category({[<ins>name: string</ins>, parent_category_name: string]})
 ### Задача 2.2
+1. Пункт
+Country({[<ins>id: int</ins>]})
+
+City({[<ins>id: int</ins>, country_id: int]})
+
+Street({[<ins>id: int</ins>, city_id: int]})
+
+Building({[<ins>id: int</ins>, street_id: int]})
+
+Flat({[<ins>id: int</ins>, building_id: int]})
+2. Пункт
+Arbitrator({[<ins>id: int</ins>]})
+
+Team({[<ins>id: int</ins>, enemy_team_id: int, arbitrator_id: int]})
+3. Пункт
+Male({[<ins>id: in</ins>t, mother_id: int, father_id: int]})
+
+Female({[<ins>id: int</ins>, mother_id: int, father_id: int]})
 ### Задача 2.3
 ## Задача 3
 ### Задача 3.1
