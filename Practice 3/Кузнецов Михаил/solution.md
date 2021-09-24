@@ -7,7 +7,7 @@ CopyBook({[<ins>number: Int</ins>, position: int, book_isbn: int]})
 
 taken({[<ins>reader_number: int</ins>, book_number: int</ins>, return_date: date]})
 
-Reader({[<ins>number: int, surname: string, name: string, address: string, date_of_birth: date]})
+Reader({[<ins>number: int</ins>, surname: string, name: string, address: string, date_of_birth: date]})
   
 Book({[<ins>isbn: int</ins>, year: int, name: string, author: string, pages_number: int, publisher_id: int]})
   
