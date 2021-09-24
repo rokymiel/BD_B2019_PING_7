@@ -3,7 +3,7 @@
 
 ## Задача 2
 ### Задача 2.1
-CopyBook({[number: Int, position: int, book_isbn: int]})
+CopyBook({[_number: Int_, position: int, book_isbn: int]})
 ### Задача 2.2
 ### Задача 2.3
 ## Задача 3
