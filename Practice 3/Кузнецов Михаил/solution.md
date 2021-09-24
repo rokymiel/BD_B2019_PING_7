@@ -5,7 +5,7 @@
 ### Задача 2.1
 CopyBook({[<ins>number: Int</ins>, position: int, book_isbn: int]})
 
-taken({[<ins>reader_number: int</ins>, book_number: int</ins>, return_date: date]})
+taken({[<ins>reader_number: int, book_number: int</ins>, return_date: date]})
 
 Reader({[<ins>number: int</ins>, surname: string, name: string, address: string, date_of_birth: date]})
   
