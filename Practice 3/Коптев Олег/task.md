@@ -10,59 +10,25 @@
 Переведите все диаграммы ER из предыдущей домашней работы в реляционные схемы.
 ### Решение
 #### Задача 1
-Book: {[<u>ISBN</u>, Title, Year, Author, NumberOfPages, PublisherId]}  
-Category: {[<u>CategoryId</u>, CategoryName, parentCategory]}  
-Publisher: {[<u>PublisherId</u>, Name, Address]}  
-Copy: {[<u>ISBN, CopyNumber</u>, Position]}  
-Reader: {[<u>ReaderNumber</u>, LastName, FirstName, Address, Birthday]}  
-categoryBelonging: {[<u>ISBN, CategoryId</u>]}  
-borrowing: {[<u>ISBN, CopyNumber, ReaderNumber</u>, ReturnDate]}  
+![Изображение 1](https://lucid.app/publicSegments/view/8d8a2bd3-d2e4-4f47-ab01-d1626d41044c/image.png) 
 
 #### Задача 2
 ##### Задача 2.1
-Country: {[<u>CountryId</u>]}  
-City: {[<u>CityId, CountryId</u>]}  
-Street: {[<u>StreetId, CityId, CountryId</u>]}  
-House: {[<u>HouseId, StreetId, CityId, CountryId</u>]}  
-Apartment: {[<u>ApartmentId, HouseId, StreetId, CityId, CountryId</u>]}  
+![Изображение 2](https://lucid.app/publicSegments/view/4c89c1a0-f95e-47d0-90cf-7ffb136f5ea6/image.png) 
 ##### Задача 2.2
-Player: {[<u>PlayerId</u>]}  
-Referee: {[<u>RefereeId</u>]}  
-Relation: {[<u>Host, Guest</u>, RefereeId]}  
+![Изображение 3](https://lucid.app/publicSegments/view/62c54b9f-0523-4a08-9c25-2d0e6a9aa450/image.png) 
 ##### Задача 2.3
-Man: {[<u>ManId</u>]}  
-Woman: {[<u>WomanId</u>]}  
+![Изображение 4](https://lucid.app/publicSegments/view/64ad6776-a6e0-42c5-bc15-9c53d00ef2d1/image.png) 
 
-isSon: {[<u>isSonId</u>, Son, Father, Mother]}  
-isDaughter: {[<u>isDaughterId</u>, Daughter, Father, Mother]}  
 #### Задача 3
-Entity: {[<u>EntityId</u>, Name]}  
-Relationship: {[<u>Name</u>]}  
-AttributeOfEntity: {[<u>AttributeOfEntityId, EntityId</u>, Name, isPartOfKey]}  
-AttributeOfRelationship: {[<u>AttributeOfRelationship, RelationshipId</u>, Name]}  
-WeakEntity: {[<u>WeakEntityId, EntityId</u>]}  
-RelationshipOfWeakEntity: {[<u>RelationshipId, WeakEntityId</u>, Functionality, Role, Min, Max]}  
-
-ParticipateEntityAndRelationship: {[<u>EntityId, RelationshipId</u>, Functionality, Role, Min, Max]}  
+![Изображение 5](https://lucid.app/publicSegments/view/76324eae-9d9f-42df-909d-c54942766dbb/image.png) 
 
 ## Задача 3
 ### Условия
 Переведите приведенные диаграммы ER в реляционные схемы. [3.1.](https://imgur.com/w2iDI1o) [3.2.](https://imgur.com/oFBM5pp)
 ### Решение
 #### Задача 3.1
-City: {[<u>Name, Region</u>]}  
-Train: {[<u>TrainNr</u>, Length]}  
-Station: {[<u>Name</u>, TracksAmount]}  
-
-LieIn: {[CityName, CityRegion, <u>StationName</u>]}  
-Connected: {[Station1, Station2, <u>TrainNr</u>, Departure, Arrival]}  
-Start: {[Name, <u>TrainNr</u>]}  
-End: {[Name, <u>TrainNr</u>]}  
+![Изображение 6](https://lucid.app/publicSegments/view/d4b35222-a29d-4221-8f25-22fe353d49c5/image.png) 
 
 #### Задача 3.2
-Station: {[<u>StatNr</u>, Name]}  
-Room: {[<u>RoomNr, StatNr</u>, BedsAmount]}  
-StationPersonell: {[<u>PersNr</u>, Name, StatNr]}  
-Caregiver: {[<u>PersNr</u>, Qualification]}  
-Doctor: {[<u>PerNr</u>, Area, Rank]}  
-Patient: {[<u>PatientNr</u>, Name, Disease, PersNr, StatNr, RoomNr, from, to]}  
+![Изображение 7](https://lucid.app/publicSegments/view/7f442cd1-2588-4fce-b676-94f6589dab8d/image.png) 
