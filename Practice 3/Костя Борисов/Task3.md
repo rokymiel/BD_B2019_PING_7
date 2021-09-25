@@ -5,48 +5,48 @@
 ## Задача 2
 ### Пункт 1
 
-**Категория**: {[<u>id</u>, имя, idПодкатегории]}\
-**Экземпляр**: {[<u>id</u>, <u>isnb</u>, положениеНаПолке]}\
-**Книга**: {[<u>isnb</u>, год, название, автор, колвоCтраниц, idИздательства]}\
-**Издательство**: {[<u>id</u>, имя, адрес]}\
-**Читатель**: {[<u>id</u>, фамилия, имя, адрес, деньРождения]}\
-взял: {[<u>idЧитателя</u>, <u>idЭкземпляря</u>, датаВозврата]}\
-категоризирована: {[<u>idКниги</u>, <u>idКатегории</u>]}
+**Категория**: {[<ins>id</ins>, имя, idПодкатегории]}\
+**Экземпляр**: {[<ins>id</ins>, <ins>isnb</ins>, положениеНаПолке]}\
+**Книга**: {[<ins>isnb</ins>, год, название, автор, колвоCтраниц, idИздательства]}\
+**Издательство**: {[<ins>id</ins>, имя, адрес]}\
+**Читатель**: {[<ins>id</ins>, фамилия, имя, адрес, деньРождения]}\
+взял: {[<ins>idЧитателя</ins>, <ins>idЭкземпляря</ins>, датаВозврата]}\
+категоризирована: {[<ins>idКниги</ins>, <ins>idКатегории</ins>]}
 
 ### Пункт 2.1
 
-**Квартира**: {[<u>id</u>, idДома]}\
-**Дом**: {[<u>id</u>, idУлицы]}\
-**Улица**: {[<u>id</u>, idГорода]}\
-**Город**: {[<u>id</u>, idСтраны]}\
-**Страна**: {[<u>id</u>]}
+**Квартира**: {[<ins>id</ins>, idДома]}\
+**Дом**: {[<ins>id</ins>, idУлицы]}\
+**Улица**: {[<ins>id</ins>, idГорода]}\
+**Город**: {[<ins>id</ins>, idСтраны]}\
+**Страна**: {[<ins>id</ins>]}
 
 ### Пункт 2.2
-**Арбитр**: {[<u>id</u>]}\
-**Команда**: {[<u>id</u>]}\
-играют: {[<u>idПервойКоманды</u>, <u>idВторойКоманды</u>, <u>idАрбитра</u>]}
+**Арбитр**: {[<ins>id</ins>]}\
+**Команда**: {[<ins>id</ins>]}\
+играют: {[<ins>idПервойКоманды</ins>, <ins>idВторойКоманды</ins>, <ins>idАрбитра</ins>]}
 
 ### Пункт 2.3
-**Мужчина**: {[<u>id</u>, idОтца, idМатери]}\
-**Женщина**: {[<u>id</u>, idОтца, idМатери]}
+**Мужчина**: {[<ins>id</ins>, idОтца, idМатери]}\
+**Женщина**: {[<ins>id</ins>, idОтца, idМатери]}
 
 ### Пункт 3
-**Сущность**: {[<u>id</u>, название, слабость]}\
-**Связь**: {[<u>id</u>, описание]}\
-**Атрибут**: {[<u>id</u>, название, являетсяКлючом, idСущности]}\
-связана: {[<u>idСущности</u>, <u>idСвязи</u>, idМатери, функцианальность, роль, минимум, максимум]}
+**Сущность**: {[<ins>id</ins>, название, слабость]}\
+**Связь**: {[<ins>id</ins>, описание]}\
+**Атрибут**: {[<ins>id</ins>, название, являетсяКлючом, idСущности]}\
+связана: {[<ins>idСущности</ins>, <ins>idСвязи</ins>, idМатери, функцианальность, роль, минимум, максимум]}
 
 ## Задача 3
 ### Пункт 1
-**Station**: {[<u>name</u>, traks, cityRegion, cityName]}\
-**City**: {[<u>region</u>, <u>name</u>]}\
-**Train**: {[<u>trainNr</u>, length, startStationName, endStationName]}\
-connected: {[<u>trainNr</u>, <u>stationName</u>, arrival, departure, nextStationName]}
+**Station**: {[<ins>name</ins>, traks, cityRegion, cityName]}\
+**City**: {[<ins>region</ins>, <ins>name</ins>]}\
+**Train**: {[<ins>trainNr</ins>, length, startStationName, endStationName]}\
+connected: {[<ins>trainNr</ins>, <ins>stationName</ins>, arrival, departure, nextStationName]}
 
 ### Пункт 2
-**StationPersonell**: {[<u>persNr</u>, name, stationNr]}\
-**Station**: {[<u>statNr</u>, name]}\
-**Room**: {[<u>stationNr</u>, <u>roomNr</u>, numberOfBeds]}\
-**Patient**: {[<u>patientNr</u>, name, disease, doctorNr, roomNr, admissionFrom, amissionTo]}\
-**Doctor**: {[<u>persNr</u>, area, rank]}\
-**Caregiver**: {[<u>persNr</u>, qualification]}
+**StationPersonell**: {[<ins>persNr</ins>, name, stationNr]}\
+**Station**: {[<ins>statNr</ins>, name]}\
+**Room**: {[<ins>stationNr</ins>, <ins>roomNr</ins>, numberOfBeds]}\
+**Patient**: {[<ins>patientNr</ins>, name, disease, doctorNr, roomNr, admissionFrom, amissionTo]}\
+**Doctor**: {[<ins>persNr</ins>, area, rank]}\
+**Caregiver**: {[<ins>persNr</ins>, qualification]}
