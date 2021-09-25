@@ -62,11 +62,7 @@ End: {[Name, <u>TrainNr</u>]}
 #### Задача 3.2
 Station: {[<u>StatNr</u>, Name]}  
 Room: {[<u>RoomNr, StatNr</u>, BedsAmount]}  
-StationPersonell: {[<u>PersNr</u>, Name]}  
+StationPersonell: {[<u>PersNr</u>, Name, StatNr]}  
 Caregiver: {[<u>PersNr</u>, Qualification]}  
 Doctor: {[<u>PerNr</u>, Area, Rank]}  
-Patient: {[<u>PatientNr</u>, Name, Disease]}  
-
-WorksFor: {[StatNr, <u>PersNr</u>]}  
-Admission: {[StatNr, RoomNr, <u>PatientNr</u>, from, to]}  
-Treats: {[PersNr, <u>PatientNr</u>]}  
+Patient: {[<u>PatientNr</u>, Name, Disease, PersNr, StatNr, RoomNr, from, to]}  
