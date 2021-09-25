@@ -16,4 +16,4 @@
 ![alt text](Task3_2.png)
 
 ### **_Картинка для привлечения внимания_**
-![alt text](floppa.png)
+![alt text](floppa.jpg)
