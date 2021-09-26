@@ -1,0 +1,23 @@
+graph ER {
+  #layout=neato;
+  nodesep=1.5
+  Мужчина [shape=record, label="{Мужчина}"];
+  Женщина [shape=record, label="{Женщина}"];
+
+  node [shape=diamond, style=filled, color=lightgrey];
+  дочь дочь_2 [label="дочь"] сын сын_2 [label="сын"];
+
+  Мужчина -- сын:e [label="N", xlabel="Cын"];
+  сын:w -- Мужчина [label="1", xlabel="Отец"];
+  Женщина -- дочь:e [label="N", xlabel="Дочь"];
+  дочь:w -- Женщина [label="1", xlabel="Мать"];
+
+  Мужчина -- сын_2:n [label="N", xlabel="Cын"];
+  сын_2:s -- Женщина [label="1", xlabel="Мать"];
+  Женщина -- дочь_2:s [label="N", xlabel="Дочь"];
+  дочь_2:n -- Мужчина [label="1", xlabel="Отец"];
+
+  {rank = same дочь_2 сын_2}
+  {rank = min сын}
+  {rank = max дочь}
+}
