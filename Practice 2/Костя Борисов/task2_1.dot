@@ -1,0 +1,25 @@
+graph ER {
+  #layout=neato;
+  Квартира [shape=box];
+  Дом [shape=box];
+  Улица [shape=box];
+  Город [shape=box];
+  Страна [shape=box];
+
+  node [shape=diamond, style=filled, color=lightgrey];
+  стоит [label="стоит на"];
+  находится_1 [label="находится в"];
+  находится_2 [label="находится в"];
+  находится_3 [label="находится в"];
+
+  Квартира -- находится_1 [label="N"];
+  Дом -- находится_1 [label="1"];
+  Дом -- стоит [label="N"];
+  Улица -- стоит [label="1"];
+  Улица -- находится_2 [label="N"];
+  Город -- находится_2 [label="1"];
+  Город -- находится_3 [label="N"];
+  Страна -- находится_3 [label="1"];
+
+  rankdir=LR;
+}
