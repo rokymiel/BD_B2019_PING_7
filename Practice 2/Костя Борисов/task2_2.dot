@@ -1,0 +1,9 @@
+graph ER {
+  Арбитр [shape=box];
+  Команда [shape=box];
+  Игра [shape=diamond, style=filled, color=lightgrey, label="играют"];
+
+  Арбитр -- Игра [label="1"];
+  Команда -- Игра [label="N"];
+  Команда -- Игра [label="M"];
+}

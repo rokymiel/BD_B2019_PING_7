@@ -1,0 +1,55 @@
+graph ER {
+  rankdir=LR;
+
+  node [shape=box];
+  Категория Экземпляр Книга Издательство Читатель;
+
+  node [shape=ellipse, style=filled, color=lightyellow];
+  attr_0 [label=<Имя категории>];
+  Категория -- attr_0;
+  attr_1 [label=<<U>ISBN</U>>];
+  attr_2 [label=<<U>Уникальный номер копии</U>>];
+  attr_3 [label=<Положение на полке>];
+  Экземпляр -- {attr_1 attr_2 attr_3};
+  attr_4 [label=<<U>ISBN</U>>];
+  attr_5 [label=<Год>];
+  attr_6 [label=<Название>];
+  attr_7 [label=<Автор>];
+  attr_8 [label=<Количество страниц>];
+  Книга -- {attr_4 attr_5 attr_6 attr_7 attr_8};
+  attr_9 [label=<Имя>];
+  attr_10 [label=<Адрес>];
+  Издательство -- {attr_9 attr_10};
+  attr_11 [label=<<U>Уникальный номер</U>>];
+  attr_12 [label=<Фамилия>];
+  attr_13 [label=<Имя>];
+  attr_14 [label=<Адрес>];
+  attr_15 [label=<День рождения>];
+  Читатель -- {attr_11 attr_12 attr_13 attr_14 attr_15};
+
+  node [shape=diamond, style=filled, color=lightgrey];
+  публикует;
+  Издательство -- публикует [label="1"];
+  публикует -- Книга [label="N"];
+
+  под;
+  Категория -- под [label="1"];
+  под -- Категория [label="N"];
+
+  присвоена [label="присвоена к"];
+  Книга -- присвоена [label="N"];
+  Категория -- присвоена [label="M"];
+
+  копия;
+  Экземпляр -- копия [label="N"];
+  Книга -- копия [label="1"];
+
+  Взятие [shape=diamond, style=filled, color=lightgrey, label="взял"];
+  "Дата возврата" [shape=ellipse, style=filled, color=lightyellow];
+  Читатель -- Взятие [label="N"];
+  Экземпляр -- Взятие [label="M"];
+  Взятие -- "Дата возврата";
+
+  {rank = same Категория Экземпляр Книга Издательство Читатель}
+  # {rank = same публикует под присвоена копия Взятие}
+}
