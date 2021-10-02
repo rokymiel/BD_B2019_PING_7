@@ -66,27 +66,30 @@ where b.ReturnDate < CurrentDate;
 - Найдите все прямые рейсы из Москвы в Тверь.
 ```sql
 select t.TrainNr
-from Train as t
-where StartStationName = 'Москва'
-  and EndStationName = 'Санкт-Петербург'
-  and t.TrainNr in 
-  (
-    select t2.TrainNr
-    from Train t2
-             inner join Connection on t2.TrainNr = Connection.TrainNr
-    group by t2.TrainNr
-    having count(t2.TrainNr) = 1
-  );
+from Train t
+inner join Station StartCity
+    on StartStationName = StartCity.Name
+inner join Station EndCity
+    on EndStationName = EndCity.Name
+where StartCity.CityName = 'Москва'
+and EndCity.CityName = 'Санкт-Петербург';
 ```
 
 - Найдите все многосегментные маршруты, имеющие точно однодневный трансфер из Москвы в Санкт-Петербург (первое отправление и прибытие в конечную точку должны быть в одну и ту же дату).
 ```sql
-select distinct c.TrainNr
-from Connection c
-where c.FromStation='Москва' 
-and c.ToStation='Санкт-Петербург'
-and c.Arrival - c.Departure = 0
-and c.TrainNr in (
+select t.TrainNr
+from Train t
+inner join Station StartCity
+    on StartStationName = StartCity.Name
+inner join Station EndCity
+    on EndStationName = EndCity.Name
+inner join Connection c
+    on t.StartStationName = c.FromStation
+           and t.EndStationName = c.ToStation
+where StartCity.CityName = 'Москва'
+and EndCity.CityName = 'Санкт-Петербург'
+and c.Arrival = c.Departure
+and t.TrainNr in in (
     select c2.TrainNr
     from Connection c2
     group by c2.TrainNr
@@ -96,30 +99,8 @@ and c.TrainNr in (
 
 - Что изменится в выражениях для а) и б), если отношение "Connection" не содержит дополнительных кортежей для транзитивного замыкания, поэтому многосегментный маршрут Москва-> Тверь-> Санкт-Петербург содержит только кортежи Москва-> Тверь и Тверь-Санкт-Петербург?
 
-Для первого запроса ничего не изменится, мы все так же ищем поезд, который имеет только один кортеж от начала и до конца.  
-Для второго запроса нам придется несколько иначе иначе все искать. Нам нужно отдельно найти все времена прихода в Спб, все времена отхода из Мск. Затем посчитать разницу таких времен для каждого из путей и убедиться, что для подходящих путей более 1 кортежа. Например:
-```sql
-select distinct out.TrainNr
-from(
-         select c.Departure, c.TrainNr
-         from Connection c
-         where c.FromStation = 'Москва'
-    ) out
-        inner join 
-    (
-        select c.Arrival, c.TrainNr
-        from Connection c
-        where c.ToStation = 'Санкт-Петербург'
-    ) arr
-        on arr.TrainNr = out.TrainNr
-where out.Departure - arr.Arrival = 0
-and out.TrainNr in 
-(
-    select c2.TrainNr
-    from Connection c2
-    group by c2.TrainNr
-    having count(c2.TrainNr)>1
-);
-```
+Для первого и второго запросов придется иначе искать нужную начальную и конечную точку, выясняя есть ли станиция в Мск из которой мы выезжаем и станиция в Спб, куда мы приезжаем.  
+Потому что в случае Мск - Спб - Тверь мы так и не узнаем по кортежам, что есть путь Мск - Тверь  
+Аналогично будет в пункте б).
 
 
