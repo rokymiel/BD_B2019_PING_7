@@ -1,0 +1,25 @@
+graph ER {
+  node [shape=box];
+  Сущность Связь Атрибут;
+
+  node [shape=ellipse, style=filled, color=lightyellow];
+  Название Слабость;
+  Сущность -- {Название Слабость};
+  Описание;
+  Связь -- Описание;
+  Название_1 [label="Название"] "Является ключом";
+  Атрибут -- {Название_1 "Является ключом"};
+
+  имеет_1 [shape=diamond, style=filled, color=lightgrey, label="имеет"];
+  имеет_2 [shape=diamond, style=filled, color=lightgrey, label="имеет"];
+  Сущность -- имеет_1 [label="1"];
+  имеет_1 -- Атрибут [label="N"];
+  Связь -- имеет_2 [label="1"];
+  имеет_2 -- Атрибут [label="N"];
+
+  связана [shape=diamond, style=filled, color=lightgrey, label="вступает в"];
+  Функцианальность Роль Минимум Максимум;
+  связана -- Сущность [label="N"];
+  связана -- Связь [label="M"];
+  {Функцианальность Роль Минимум Максимум} -- связана [dir=none];
+}
