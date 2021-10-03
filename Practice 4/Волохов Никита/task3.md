@@ -61,23 +61,26 @@ AND Connection.TrainNr IN (
 
 a)
 ```sql
-SELECT TrainNr 
-FROM Train JOIN Connection AS Con1 ON Train.TrainNr = Con1.TrainNr
-           JOIN Connection AS Con2 ON Train.TrainNr = Con2.TrainNr
-           JOIN Station AS St1 ON Con1.FromStation = Train.StartStationName
-           JOIN Station AS St2 ON Con2.FromStation = Train.EndStationName
-WHERE St1.CityName = 'Москва' AND St2.CityName = 'Тверь'
+SELECT Conn1.TrainNr 
+FROM Connection AS Conn1 JOIN Station AS StFrom ON StFrom.Name = Conn1.FromStation 
+WHERE StFrom.CityName = 'Москва'
+AND Conn1.TrainNr IN (
+    SELECT Conn.TrainNr
+    FROM Connection AS Conn2 JOIN Station AS StTo ON StTo.Name = Conn2.ToStation
+    WHERE StTo.CityName = 'Тверь'
+) 
 ```
 
 б)
 ```sql
-SELECT Con1.TrainNr 
-FROM Train JOIN Connection AS Con1 ON Train.TrainNr = Con1.TrainNr
-           JOIN Connection AS Con2 ON Train.TrainNr = Con2.TrainNr
-           JOIN Station AS St1 ON Con1.FromStation = Train.StartStationName
-           JOIN Station AS St2 ON Con2.FromStation = Train.EndStationName
-WHERE St1.CityName = 'Москва' AND St2.CityName = 'Санкт-Петербург' AND DAY(Con1.Departure) = DAY(Con2.Arrival)
-AND Con1.TrainNr IN (
+SELECT Conn1.TrainNr 
+FROM Connection AS Conn1 JOIN Station AS StFrom ON StFrom.Name = Conn1.FromStation 
+WHERE StFrom.CityName = 'Москва' AND day(Conn1.Arrival) = day(Conn1.Departure)
+AND Conn1.TrainNr IN (
+    SELECT Conn.TrainNr
+    FROM Connection AS Conn2 JOIN Station AS StTo ON StTo.Name = Conn2.ToStation
+    WHERE StTo.CityName = 'Санкт-Петербург' AND day(Conn2.Arrival) = day(Conn2.Departure)
+) AND Conn1.TrainNr IN (
     SELECT TrainNr FROM Connection
     GROUP BY TrainNr
     HAVING COUNT(TrainNr) > 1
