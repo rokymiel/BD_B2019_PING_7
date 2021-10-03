@@ -67,11 +67,11 @@ P.S.
 ```sql
 SELECT DISTINCT TrainNr 
 FROM Connection AS c
-JOIN Station AS from
-  ON from.Name = c.FromStation
+JOIN Station AS fr
+  ON fr.Name = c.FromStation
 JOIN Station AS to
   ON to.Name = c.ToStation
-WHERE from.CityName = 'Москва' 
+WHERE fr.CityName = 'Москва' 
   AND to.CityName = 'Тверь'
 ```
 
@@ -79,11 +79,11 @@ WHERE from.CityName = 'Москва'
 ```sql
 SELECT DISTINCT TrainNr 
 FROM Connection AS c
-JOIN Station AS from 
-  ON from.Name = c.FromStation
+JOIN Station AS fr 
+  ON fr.Name = c.FromStation
 JOIN Station AS to 
   ON to.Name = c.ToStation
-WHERE from.CityName = 'Москва' 
+WHERE fr.CityName = 'Москва' 
   AND to.CityName = 'Санкт-Петербург' 
   AND day(Arrival) = day(Departure)
   AND TrainNr IN (
@@ -115,9 +115,9 @@ WHERE to.CityName = 'Тверь'
 WITH trains AS(
 	SELECT DISTINCT TrainNr, Departure 
 	FROM Connection AS c
-	JOIN Station AS from
-	  ON from.Name = c.FromStation
-	WHERE from.CityName = 'Москва' 
+	JOIN Station AS fr
+	  ON fr.Name = c.FromStation
+	WHERE fr.CityName = 'Москва' 
 	  AND day(с2.Arrival) = day(с1.Departure)
 	  AND с1.TrainNr IN (
 		SELECT TrainNr
