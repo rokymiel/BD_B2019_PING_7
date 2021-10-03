@@ -108,7 +108,7 @@ WHERE to.CityName = 'Тверь'
 	JOIN Station
 	  ON Station.Name = Connection.FromStation
 	WHERE Station.CityName = 'Москва' 
-	)
+)
 ```
 б)
 ```sql
@@ -125,6 +125,7 @@ WITH trains AS(
 		GROUP BY TrainNr
 		  HAVING COUNT(TrainNr) > 1
 	)
+)
 	  
 SELECT DISTINCT t.TrainNr
 FROM Connection AS c
