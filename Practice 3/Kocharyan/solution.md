@@ -80,21 +80,20 @@ Relationships:
 
 
 ## Задача 3
-
 ### Метро:
 <b>Сущности:</b>:
-* Train: {[***TrainNr***, Length, StartStationName, EndStationName, CurrentConnectionId]}
-* Station: {[***Name***, #Tracks, CityName, NextStationName, PreviousStationName]}
-* City: {[***Name***, ***Region***]}
+* City: {[<ins>Name</ins>: string, <ins>Region</ins>: string]}
+* Station: {[<ins>Name</ins>: string, #Tracks: int, CityName: string, PreviousStationName: string, NextStationName: string]}
+* Train: {[<ins>TrainNr</ins>: int, Length: int, StartStationName: string, CurrentConnectionID: int, EndStationName: string]}
 
 <b>Связи:</b>:
-* Connected (Station <-> Station <-> Train): {[***ConnectionId***, ***StartStationName***, ***EndStationName***, Departure, Arrival]}
+* Connected (Station - Station - Train): {[<ins>ConnectionID</ins>: int, <ins>StartStationName</ins>: string, <ins>EndStationName</ins>: string, Departure: date, Arrival: date]}
 
 ### Госпиталь:
 <b>Сущности:</b>:
-* StationPersonell: {[***PersNr***, Name, StationNr, JobType]}
-* Caregiver: {[***PersNr***, Qualification]}
-* Doctor: {[***PersNr***, Area, Rank]}
-* Patient: {[***PatientNr***, Name, Disease, DoctorNr, AdmissionFrom, AdmissionTo, RoomNr]}
-* Room: {[***RoomNr***, Beds, StationNr]}
-* Station: {[***StatNr***, Name]}
+* Station: {[<ins>StatNr</ins>: int, Name: string]}
+* StationPersonell: {[<ins>PersNr</ins>: int, #Name: string, StationNr: int]}
+* Room: {[<ins>RoomNr</ins>: int, <ins>StationNr: int</ins>, #Beds: int]}
+* Caregiver: {[<ins>PersNr</ins>: int, Qualification: string]}
+* Doctor: {[<ins>PersNr</ins>: int, Area: string, Rank: int]}
+* Patient: {[<ins>PatientNr</ins>: int, Name: string, Disease: string, PersNr: int, AdmissionRoomNr: int, AdmissionFrom: string, AdmissionTo: string]}
