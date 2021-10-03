@@ -34,7 +34,7 @@ SELECT LastName, FirstName
 FROM Reader
          INNER JOIN Borrowing 
             ON Reader.ID = Borrowing.ReaderNr
-WHERE ReturnDate IS NOT NULL;
+WHERE Borrowing.ReturnDate  <= DATE('now');
 ```
 
 ### Д) 
