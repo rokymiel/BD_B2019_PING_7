@@ -130,21 +130,23 @@ WHERE from.CityName = 'Москва'
 ```
 
 ## Задача 3
-Пусть имеются две, таблицы: *L = {a<sub>1</sub>, ... , a<sub>n</sub>, b<sub>1</sub>, ... , b<sub>k</sub>}*, *R = {b<sub>1</sub>, ... , b<sub>k</sub>, c<sub>1</sub>, ... , c<sub>m</sub>}*.
+Пусть имеются две таблицы: \
+ *L = {a<sub>1</sub>, ... , a<sub>n</sub>, b<sub>1</sub>, ... , b<sub>k</sub>}* \
+ *R = {b<sub>1</sub>, ... , b<sub>k</sub>, c<sub>1</sub>, ... , c<sub>m</sub>}* 
 
 Определим Natural Join как: \
 *NaturalJoin(L, R) = 𝜋<sub>{a<sub>1</sub>, ... , a<sub>n</sub>,  b<sub>1</sub>, ... , b<sub>k</sub>, , c<sub>1</sub>, ... , c<sub>m</sub>}</sub>(𝜎<sub>∀i L.b<sub>i</sub> = R.b<sub>i</sub></sub>(L × R))*
 
 Получим остатки таблиц *L* и *R*: \
-*L<sub>remainder</sub>(L, R) = L \ 𝜋<sub>{a<sub>1</sub>, ... , a<sub>n</sub>,  b<sub>1</sub>, ... , b<sub>k</sub>}</sub>(NaturalJoin(L, R)*)
-*R<sub>remainder</sub>(L, R) = R \ 𝜋<sub>{b<sub>1</sub>, ... , b<sub>k</sub>, , c<sub>1</sub>, ... , c<sub>m</sub>}</sub>(NaturalJoin(L, R)*)
+*L<sub>remainder</sub>(L, R) = L \ 𝜋<sub>{a<sub>1</sub>, ... , a<sub>n</sub>,  b<sub>1</sub>, ... , b<sub>k</sub>}</sub>(NaturalJoin(L, R)*) \
+*R<sub>remainder</sub>(L, R) = R \ 𝜋<sub>{b<sub>1</sub>, ... , b<sub>k</sub>, , c<sub>1</sub>, ... , c<sub>m</sub>}</sub>(NaturalJoin(L, R)*) 
 
 Дополним *L<sub>remainder</sub>* и *R<sub>remainder</sub>* null'ами так, чтобы их размерность была такая же, как у *NaturalJoin(L, R)* \
-*L<sub>remainder</sub> = L<sub>remainder</sub> × {null, ... , null}*
+*L<sub>remainder</sub> = L<sub>remainder</sub> × {null, ... , null}* \
 *R<sub>remainder</sub> = R<sub>remainder</sub> × {null, ... , null}*
 
 
 Тогда: \
-*Full OuterJoin(L, R) =  L<sub>remainder</sub>(L, R) ∪ NaturalJoin(L, R) ∪ R<sub>remainder</sub>(L, R)*
-*Left OuterJoin(L, R) =  L<sub>remainder</sub>(L, R) ∪ NaturalJoin(L, R)*
+*Full OuterJoin(L, R) =  L<sub>remainder</sub>(L, R) ∪ NaturalJoin(L, R) ∪ R<sub>remainder</sub>(L, R)* \
+*Left OuterJoin(L, R) =  L<sub>remainder</sub>(L, R) ∪ NaturalJoin(L, R)* \
 *Right OuterJoin(L, R) = NaturalJoin(L, R) ∪ R<sub>remainder</sub>(L, R)*
