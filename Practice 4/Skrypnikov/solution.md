@@ -58,9 +58,9 @@ AND (R.FirstName != 'Иван' OR R.LastName != 'Иванов')
 а) Найдите все прямые рейсы из Москвы в Тверь. 
 
 ```sql
-SELECT Tr.TrainNr FROM
-	Train Tr JOIN Connection C
-    	on Tr.TrainNr = C.TrainNr
+SELECT Tr.TrainNr, C.Departure, C.Arrival FROM
+	Connection C JOIN Train Tr 
+    		ON Tr.TrainNr = C.TrainNr
 WHERE C.FromStation = 'Москва' AND C.ToStation = 'Тверь'
 ```
 
