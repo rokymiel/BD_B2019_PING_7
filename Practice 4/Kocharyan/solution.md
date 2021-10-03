@@ -120,7 +120,7 @@ JOIN Station station1
   ON station1.Name = connection1.FromStation
 JOIN Station station2 
   ON station2.Name = connection2.ToStation
-WHERE station1.CityName = 'Москва' AND station2.CityName = 'Санкт-Петербург' AND day(connection2.Arrival) = day(connection1.Departure)
+WHERE station1.CityName = 'Москва' AND station2.CityName = 'Санкт-Петербург' AND DAY(connection2.Arrival) DAYday(connection1.Departure)
 ```
 
 ## Задача 3
