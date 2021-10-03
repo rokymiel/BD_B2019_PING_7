@@ -4,13 +4,13 @@
 
 ### а) **Какие фамилии читателей в Москве?**
 ```sql
-SELECT LastName 
+SELECT DISTINCT LastName 
 FROM Reader
 WHERE Address LIKE '%Москва%'
 ```
 ### б) **Какие книги (author, title) брал Иван Иванов?**
 ```sql
-SELECT Author, Title 
+SELECT DISTINCT Author, Title 
 FROM Book AS bk
 JOIN Reader AS r
   ON br.ReaderNr = r.ID
@@ -21,7 +21,7 @@ WHERE r.FirstName = 'Иван'
 ```
 ### в) **Какие книги (ISBN) из категории "Горы" не относятся к категории "Путешествия"? Подкатегории не обязательно принимать во внимание!**
 ```sql
-SELECT ISBN
+SELECT DISTINCT ISBN
 FROM BookCat
 WHERE CategoryName = 'Горы'
   AND ISBN NOT IN (
@@ -33,7 +33,7 @@ WHERE CategoryName = 'Горы'
 
 ### г) **Какие читатели (LastName, FirstName) вернули копию книгу?**
 ```sql
-SELECT r.LastName, r.FirstName 
+SELECT DISTINCT r.LastName, r.FirstName 
 FROM Reader as r
 JOIN Borrowing as br
   ON br.ReaderNr = r.ID
@@ -43,7 +43,7 @@ WHERE date(br.ReturnDate) < date('now')
 ### д) **Какие читатели (LastName, FirstName) брали хотя бы одну книгу (не копию), которую брал также Иван Иванов (не включайте Ивана Иванова в результат)?**
 
 ```sql
-SELECT r.LastName, r.FirstName
+SELECT DISTINCT r.LastName, r.FirstName
 FROM Reader AS r
 JOIN Borrowing AS br 
   ON br.ReaderNr = r.ID
@@ -65,7 +65,7 @@ P.S.
 ## Задача 2
 ### а) **Найдите все прямые рейсы из Москвы в Тверь.**
 ```sql
-SELECT TrainNr 
+SELECT DISTINCT TrainNr 
 FROM Connection AS c
 JOIN Station AS from
   ON from.Name = c.FromStation
@@ -77,7 +77,7 @@ WHERE from.CityName = 'Москва'
 
 ### б) **Найдите все многосегментные маршруты, имеющие точно однодневный трансфер из Москвы в Санкт-Петербург (первое отправление и прибытие в конечную точку должны быть в одну и ту же дату). Вы можете применить функцию DAY () к атрибутам Departure и Arrival, чтобы определить дату.**
 ```sql
-SELECT TrainNr 
+SELECT DISTINCT TrainNr 
 FROM Connection AS c
 JOIN Station AS from 
   ON from.Name = c.FromStation
@@ -97,36 +97,43 @@ WHERE from.CityName = 'Москва'
 ### в) **Что изменится в выражениях для а) и б), если отношение "Connection" не содержит дополнительных кортежей для транзитивного замыкания, поэтому многосегментный маршрут Москва-> Тверь-> Санкт-Петербург содержит только кортежи Москва-> Тверь и Тверь-Санкт-Петербург?**
 а)
 ```sql
-SELECT TrainNr 
-FROM Connection AS c1
-JOIN Station AS from
-  ON from.Name = c1.FromStation
-JOIN Connection AS c2
-  ON c1.TrainNr = c2.TrainNr
-JOIN Station AS to
-  ON to.Name = c2.FromStation
-WHERE from.CityName = 'Москва' 
-  AND to.CityName = 'Тверь'
+SELECT DISTINCT t.TrainNr
+FROM Connection AS c
+JOIN Station AS to 
+  ON to.Name = c.ToStation
+WHERE to.CityName = 'Тверь'
+  AND c.TrainNr IN (
+	SELECT DISTINCT TrainNr 
+	FROM Connection AS c
+	JOIN Station AS from
+	  ON from.Name = c.FromStation
+	WHERE from.CityName = 'Москва' 
+	)
 ```
 б)
 ```sql
-SELECT с1.TrainNr 
-FROM Connection AS c1
-JOIN Station AS from
-  ON from.Name = c1.FromStation
-JOIN Connection AS c2
-  ON c1.TrainNr = c2.TrainNr
-JOIN Station AS to
-  ON to.Name = c2.FromStation
-WHERE from.CityName = 'Москва' 
-  AND to.CityName = 'Санкт-Петербург' 
-  AND day(с2.Arrival) = day(с1.Departure)
-  AND с1.TrainNr IN (
-    SELECT TrainNr
-    FROM Connection
-    GROUP BY TrainNr
-      HAVING COUNT(TrainNr) > 1
-  )
+WITH trains AS(
+	SELECT DISTINCT TrainNr, Departure 
+	FROM Connection AS c
+	JOIN Station AS from
+	  ON from.Name = c.FromStation
+	WHERE from.CityName = 'Москва' 
+	  AND day(с2.Arrival) = day(с1.Departure)
+	  AND с1.TrainNr IN (
+		SELECT TrainNr
+		FROM Connection
+		GROUP BY TrainNr
+		  HAVING COUNT(TrainNr) > 1
+	)
+	  
+SELECT DISTINCT t.TrainNr
+FROM Connection AS c
+INNER JOIN trains AS t
+  ON t.TrainNr = c.TrainNr
+JOIN Station AS to 
+  ON to.Name = c.ToStation
+WHERE to.CityName = 'Санкт-Петербург' 
+  AND day(c.Arrival) = day(t.Departure)
 ```
 
 ## Задача 3
