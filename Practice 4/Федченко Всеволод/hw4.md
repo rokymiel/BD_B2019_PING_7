@@ -97,17 +97,17 @@ WHERE from.CityName = 'Москва'
 ### в) **Что изменится в выражениях для а) и б), если отношение "Connection" не содержит дополнительных кортежей для транзитивного замыкания, поэтому многосегментный маршрут Москва-> Тверь-> Санкт-Петербург содержит только кортежи Москва-> Тверь и Тверь-Санкт-Петербург?**
 а)
 ```sql
-SELECT DISTINCT t.TrainNr
+SELECT DISTINCT c.TrainNr
 FROM Connection AS c
 JOIN Station AS to 
   ON to.Name = c.ToStation
 WHERE to.CityName = 'Тверь'
   AND c.TrainNr IN (
 	SELECT DISTINCT TrainNr 
-	FROM Connection AS c
-	JOIN Station AS from
-	  ON from.Name = c.FromStation
-	WHERE from.CityName = 'Москва' 
+	FROM Connection
+	JOIN Station
+	  ON Station.Name = Connection.FromStation
+	WHERE Station.CityName = 'Москва' 
 	)
 ```
 б)
