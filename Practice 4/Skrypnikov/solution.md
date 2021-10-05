@@ -24,10 +24,13 @@ WHERE R.LastName = 'Иванов' AND R.FirstName = 'Иван'
 в) Какие книги (ISBN) из категории "Горы" не относятся к категории "Путешествия"? Подкатегории не обязательно принимать во внимание!
 
 ```sql
-SELECT B.ISBN FROM
-	Book B JOIN BookCat BC
-    	ON B.ISBN = BC.ISBN
-WHERE Bc.CategoryName = 'Горы' AND Bc.CategoryName != 'Путешествия'
+SELECT Bc.ISBN FROM
+	BookCat Bc 
+WHERE Bc.CategoryName = 'Путешествия'
+EXCEPT
+SELECT Bc.ISBN FROM
+	BookCat Bc 
+WHERE Bc.CategoryName = 'Горы'
 ```
 
 г) Какие читатели (LastName, FirstName) вернули копию книгу?
@@ -36,7 +39,7 @@ WHERE Bc.CategoryName = 'Горы' AND Bc.CategoryName != 'Путешестви�
 SELECT R.FirstName, R.LastName FROM
 	Reader R JOIN Borrowing Br
     	ON Br.ReaderNr = R.ID
-WHERE Br.ReturnDate < DATE('now')
+WHERE DATE(Br.ReturnDate) < DATE('now')
 ```
 
 д) Какие читатели (LastName, FirstName) брали хотя бы одну книгу (не копию), которую брал также Иван Иванов (не включайте Ивана Иванова в результат)?
@@ -68,23 +71,17 @@ WHERE C.FromStation = 'Москва' AND C.ToStation = 'Тверь'
 
 ```sql
 SELECT DISTINCT Tr.TrainNr FROM
-Train Tr JOIN
-    (SELECT C.TrainNr, C.Departure, C.Arrival FROM
-     	Connection C GROUP BY C.TrainNr
-     	HAVING COUNT(*) > 1) C
-ON Tr.TrainNr = C.TrainNr
-WHERE JULIANDAY(C.Departure, '-1 day') = JULIANDAY(C.Arrival)
+(SELECT C.TrainNr FROM
+     Connection C GROUP BY C.TrainNr
+     HAVING COUNT(*) > 1) Tr JOIN Connection C
+ON C.TrainNr = Tr.TrainNr
+WHERE C.Departure = 'Москва' AND С.Arrival = 'Санкт-Петербург'
+AND JULIANDAY(C.Departure, '-1 day') = JULIANDAY(C.Arrival)
 ```
 
 в) Что изменится в выражениях для а) и б), если отношение "Connection" не содержит дополнительных кортежей для транзитивного замыкания, поэтому многосегментный маршрут Москва-> Тверь-> Санкт-Петербург содержит только кортежи Москва-> Тверь и Тверь-Санкт-Петербург?
 
-Думаю, нужно будет джойнить `Connection` на себя.
-По типу 
-```sql
-Connection C1 LEFT OUTER JOIN Connection C2
-	ON C1.ToStation = C2.FromStation AND C1.TrainNr = C2.TrainNr
-```
-(все маршруты длины 2 и 1), и танцевать что-то оттуда.
+Нужно будет обходить таблицу либо специальным синтаксисом с лекции, если мы в Oracle, либо через вспомогательную таблицу с WITH, которая бы и делала транзитивное замыкание.
 
 
 ### Задание 3
