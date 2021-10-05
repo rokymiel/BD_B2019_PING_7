@@ -21,12 +21,13 @@ WHERE Reader.LastName = 'Иванов'
 
 в) Какие книги (ISBN) из категории "Горы" не относятся к категории "Путешествия"? Подкатегории не обязательно принимать во внимание!
 ```sql
-SELECT DISTINCT Book.ISBN
-FROM Book
-         JOIN BookCat
-              ON BookCat.ISBN = Book.ISBN
-WHERE BookCat.CategoryName != 'Путешествия'
-  AND BookCat.CategoryName = 'Горы'
+SELECT DISTINCT BookCat.ISBN
+FROM BookCat
+WHERE CategoryName = 'Горы'
+    EXCEPT
+SELECT DISTINCT BookCat.ISBN
+FROM BookCat
+WHERE CategoryName = 'Путешествия'
 ```
 
 г) Какие читатели (LastName, FirstName) вернули копию книгу?
