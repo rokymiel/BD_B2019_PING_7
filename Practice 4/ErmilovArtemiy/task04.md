@@ -10,12 +10,10 @@ where Reader.Address like '%Москва%';
 
 ```sql
 select distinct Book.Author, Book.Title
-from Borrowing inner join Book on Borrowing.ISBN = Book.ISBN
-where Borrowing.ReaderNr = (
-    select Reader.ID 
-    from Reader  
-    where Reader.LastName = 'Иванов' and Reader.FirstName = 'Иван'
-);
+from Borrowing
+inner join Book on Borrowing.ISBN = Book.ISBN
+inner join Reader on Borrowing.ReaderNr = Reader.ID
+where Reader.FirstName = 'Иван' and Reader.LastName = 'Иванов';
 ```
 
 в) Какие книги (ISBN) из категории "Горы" не относятся к категории "Путешествия"? Подкатегории не обязательно принимать во внимание!
@@ -32,17 +30,14 @@ where BookCat.CategoryName = 'Путешествия';
 г) Какие читатели (LastName, FirstName) вернули копию книгу?
 ```sql
 select distinct Reader.LastName, Reader.FirstName
-from Reader
-where Reader.ID in (select Borrowing.ReaderNr
-                    from Borrowing
-                    where Borrowing.ReturnDate < datetime()
-);
+from Reader inner join Borrowing on Reader.ID = Borrowing.ReaderNr
+where Borrowing.ReturnDate < datetime();
 ```
 
 д) Какие читатели (LastName, FirstName) брали хотя бы одну книгу (не копию), которую брал также Иван Иванов (не включайте Ивана Иванова в результат)?
 ```sql
 select distinct Reader.LastName, Reader.FirstName
-from Borrowing left join Reader on Borrowing.ReaderNr = Reader.ID
+from Borrowing inner join Reader on Borrowing.ReaderNr = Reader.ID
 where Borrowing.ISBN in (
     select distinct Borrowing.ISBN
     from Borrowing
@@ -59,18 +54,11 @@ where Borrowing.ISBN in (
 
 а) Найдите все прямые рейсы из Москвы в Тверь.
 
-__Считаем прямыми те рейсы, у которых начало маршрута в Москве, а конец - в Твери.__
 ```sql
-select Train.TrainNr
-from Train
-where Train.StartStationName = 'Москва'
-  and EndStationName = 'Санкт-Петербург'
-  and Train.TrainNr in (
-    select Connection.TrainNr
-    from Connection
-    group by Connection.TrainNr
-    having count(Connection.TrainNr) = 1
-);
+select distinct TrainNr
+from Connection
+where Connection.FromStation = 'Москва' and Connection.ToStation = 'Тверь';
+
 ```
 
 б) Найдите все многосегментные маршруты, имеющие точно однодневный трансфер из Москвы в Санкт-Петербург (первое отправление и прибытие в конечную точку должны быть в одну и ту же дату). Вы можете применить функцию DAY () к атрибутам Departure и Arrival, чтобы определить дату.
@@ -85,12 +73,10 @@ where Connection.FromStation = 'Москва'
     from Connection
     group by Connection.TrainNr
     having count(Connection.TrainNr) > 1
-);
+)
 ```
 
 в) Что изменится в выражениях для а) и б), если отношение "Connection" не содержит дополнительных кортежей для транзитивного замыкания, поэтому многосегментный маршрут Москва-> Тверь-> Санкт-Петербург содержит только кортежи Москва-> Тверь и Тверь-Санкт-Петербург?
-
-а) останется таким же.
 
 Измененный б) :
 ```sql
@@ -110,5 +96,21 @@ where julianday(dep.Departure) = julianday(arr.Arrival)
     from Connection
     group by Connection.TrainNr
     having count(Connection.TrainNr) > 1
-);
+)
 ```
+
+# Задание 3
+
+Пусть даны две таблицы **A** и **B**. 
+
+Для выполнения Full Outer Join по некоторым общим столбцам **x<sub>1</sub>, ... x<sub>p</sub>**, джойнятся все строки наших таблиц, у которых совпадают все столбцы, при этом при нехватке значений в других столбцах производится заполнение `null`'ом.
+
+Так как Full Outer Join по сути есть кобминирование результатов Left Outer Join и Right Outer Join, можем выразить его следующим образом (где IJ - Inner Join):
+
+**IJ = π<sub>a<sub>1</sub> ... a<sub>n</sub>, b<sub>1</sub> ... b<sub>m</sub> </sub>(σ<sub>∀i A.x<sub>i</sub> = B.x<sub>i</sub></sub>(A×B))**
+
+**L = (A - π<sub>A</sub>IJ) x {(null, null, ... null)}**
+
+**R = (π<sub>B</sub>IJ - B) x {(null, null, ... null)}**
+
+**Full Outer Join = L ∪ R ∪ IJ**
