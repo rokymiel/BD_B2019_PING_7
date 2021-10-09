@@ -1,8 +1,9 @@
+# Задание 4
 ## Задание 1
 ### Пункт a)
 ```sql
-SELECT LastName FROM Reader
-WHERE address LIKE '%Москва%'
+SELECT DISTINCT LastName FROM Reader
+WHERE  Address LIKE '%Москва%'
 ```
 ### Пункт б)
 ```sql
