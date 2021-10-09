@@ -134,14 +134,14 @@ Train ( TrainNr, Length, StartStationName, EndStationName )
 
 Возьмите реляционную схему для библиотеки сделаную в задании 3.1: 
 
-* Reader( <pre>ID</pre>, LastName, FirstName, Address, BirthDate)  <br>
-* Book ( <pre>ISBN</pre>, Title, Author, PagesNum, PubYear, PubName)  <br>
-* Publisher ( <pre>PubName</pre>, PubAdress)  <br>
-* Category ( <pre>CategoryName</pre>, ParentCat)  <br>
-* Copy ( <pre>ISBN, CopyNumber</pre>,, ShelfPosition)  <br>
+* Reader( <ins>ID</ins>, LastName, FirstName, Address, BirthDate)  <br>
+* Book ( <ins>ISBN</ins>, Title, Author, PagesNum, PubYear, PubName)  <br>
+* Publisher ( <ins>PubName</ins>, PubAdress)  <br>
+* Category ( <ins>CategoryName</ins>, ParentCat)  <br>
+* Copy ( <ins>ISBN, CopyNumber</ins>,, ShelfPosition)  <br>
 
-* Borrowing ( <pre>ReaderNr, ISBN, CopyNumber</pre>, ReturnDate)  <br>
-* BookCat ( <pre>ISBN, CategoryName</pre> )  
+* Borrowing ( <ins>ReaderNr, ISBN, CopyNumber</ins>, ReturnDate)  <br>
+* BookCat ( <ins>ISBN, CategoryName</ins> )  
 
 Напишите SQL-запросы:
 
