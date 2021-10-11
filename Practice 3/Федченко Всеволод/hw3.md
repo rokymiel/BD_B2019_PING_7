@@ -5,8 +5,8 @@
 ### 2.1
 Сущности:
 - Книга: {[<ins>ISBN</ins>, Год, Название, Автор, Количество страниц, Номер издательства]}
-- Экземпляр книги: {[<ins>Номер копии</ins>, Положение на полке]}
-- Читатель: {[<ins>Номер читателя</ins>, Имя, Фамилия, Адрес, День рождения, <ins>Номер читателя</ins>]}
+- Экземпляр книги: {[<ins>Номер копии</ins>, <ins>ISBN</ins>, Положение на полке]}
+- Читатель: {[<ins>Номер читателя</ins>, Имя, Фамилия, Адрес, День рождения]}
 - Издательство: {[<ins>Номер издательства</ins>, Имя, Адрес]}
 - Категория: {[<ins>Номер категории</ins>, Название, Номер надкатегории]}
 
@@ -49,12 +49,10 @@
 ### 3.1
 
 Сущности:
-- Station: {[<ins>Name</ins>, Tracks, CityRegion, CityName]}
+- Station: {[<ins>Name</ins>, Tracks, Region, Name]}
 - City: {[<ins>Region</ins>, <ins>Name</ins>]}
-- Train: {[<ins>TrainNr</ins>, Length, StartStationName, EndStationName, ConnectionId]}
-
-Отношения:
-- Connection: {[<ins>ConnectionId</ins>, <ins>StartStationName</ins>, <ins>EndStationName</ins>, Arrival, Departure]}
+- Train: {[<ins>TrainNr</ins>, Length, StartStationName, EndStationName]}
+- Connection: {[<ins>StartStationName</ins>, <ins>EndStationName</ins>, Arrival, Departure, TrainNr]}
 
 ### 3.2
 
@@ -63,5 +61,5 @@
 - Caregiver: {[<ins>PersNr</ins>, Qualification]}
 - Doctor: {[<ins>PersNr</ins>, Area, Rank]}
 - Station: {[<ins>StatNr</ins>, Name]}
-- Patient: {[<ins>PatientNr</ins>, Name, Disease, DoctorNr, AdmissionFrom, AdmissionTo, RoomNr]}
+- Patient: {[<ins>PatientNr</ins>, Name, Disease, PersNr, AdmissionFrom, AdmissionTo, RoomNr]}
 - Room: {[<ins>RoomNr</ins>, Beds, StatNr]}

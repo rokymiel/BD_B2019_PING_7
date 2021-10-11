@@ -30,9 +30,9 @@
 
 <b>Сущности</b>:
 
-* Flat: {[<ins>FlatId</ins>, BuildingId]}
-* Building: {[<ins>BuildingId</ins>, StreetId]}
-* Street: {[<ins>StreetId</ins>, TownId]}
+* Flat: {[<ins>FlatId</ins>, BuildingId, StreetId, TownId, CountryId]}
+* Building: {[<ins>BuildingId</ins>, StreetId, TownId, CountryId]}
+* Street: {[<ins>StreetId</ins>, TownId, CountryId]}
 * Town: {[<ins>TownId</ins>], CountryId}
 * Country: {[<ins>CountryId</ins>]}
 
@@ -85,13 +85,13 @@
 
 * City {[<ins>Name</ins>, <ins>Region</ins>]}
 * Station {[<ins>Name</ins>, #Tracks, CityName, RegionName, NextStationName, PreviousStationName]}
-* Train {[<ins>TrainNr</ins>, Length, StartStationName, EndStationName, CurrentConnectionId]}
+* Train {[<ins>TrainNr</ins>, Length, StartStationName, EndStationName]}
 
 <b>Связи</b>:
 
 По 3-лекционному правилу простые связи были соединены 
 
-* Connected (Station <> Station <> Train): {[<ins>ConnectionId</ins>, <ins>StartStationName</ins>, <ins>EndStationName</ins>, Departure, Arrival]}
+* Connected (Station <> Station <> Train): {[<ins>TrainNr</ins>, <ins>StartStationName</ins>, <ins>EndStationName</ins>, Departure, Arrival]}
 
 #### Больница
 
