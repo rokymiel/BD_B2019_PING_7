@@ -109,7 +109,7 @@ DELETE FROM Book WHERE PubYear > '2000'
 ```sql
 UPDATE Borrowing
 SET ReturnDate = ReturnDate + 30
-WHERE ReturnDate > '01.01.2016'
+WHERE ReturnDate > '01.01.2016' AND ISBN IN (SELECT ISBN FROM Book WHERE Category='Базы данных')
 ```
 
 # Задача 3
