@@ -95,7 +95,7 @@ WITH RECURSIVE ss(x) AS (
       FROM Categories 
         JOIN ss 
           ON ss.c = parent_name
-) SELECT * FROM ss WHERE c != 'Sport'
+) SELECT * FROM ss WHERE c != 'Sport';
 ```
 
 # Задача 2
@@ -134,13 +134,12 @@ UPDATE Bookings
 ```sql
 SELECT s.Name, s.MatrNr FROM Student s 
   WHERE NOT EXISTS ( 
-    SELECT * FROM Check c WHERE c.MatrNr = s.MatrNr AND c.Note >= 4.0 ) ; 
+    SELECT * FROM Check c WHERE c.MatrNr = s.MatrNr AND c.Note >= 4.0 ); 
 ```
 
 **Описание:**
 
-Взять всех студентов (имя, id), у которых Note <4.
-
+Взять всех студентов (имя, id), у которых все оценки <4. То есть, одни незачеты по системе оценивания ВШЭ.
 
 ### Запрос 2
 ```sql
