@@ -55,7 +55,7 @@ SELECT B.Author FROM (
 SELECT Rdr.ID FROM
 Reader Rdr JOIN Borrowing Br ON Rdr.ID = Br.ReaderNr JOIN Book B ON Br.ISBN = B.ISBN
 WHERE B.Author = 'Марк Твен'
-GROUP BY Rdr.ID HAVING COUNT(*) = (
+GROUP BY Rdr.ID HAVING COUNT(DISTINCT B.ISBN) = (
 	SELECT COUNT(*) FROM Book B WHERE B.Author = 'Марк Твен'
 )
 ```
