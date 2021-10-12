@@ -6,10 +6,14 @@
 5. SELECT c1.CategoryName FROM Category c1 WHERE EXIST (SELECT c2.CategoryName FROM Category c2 WHERE c1.CategoryName = c2.ParentCat)
 6. SELECT b.Author FROM Book b GROUP BY b.Author ORDER BY COUNT(*) DESC LIMIT 1
 Пояснение: таких авторов может быть несколько (с макс. кол-вом книг), но будет выбран 1 "самый везучий"
-7. ДОДЕЛАТЬ!!!!!!!!!! SELECT r.ID FROM Reader r, Borrowing b WHERE 
+7. SELECT br.ReaderNr FROM Borrowing br, Book b WHERE b.ISBN=br.ISBN and b.Author="Марк Твен" GROUP BY br.ReaderNr HAVING COUNT(*)=COUNT(SELECT 1 FROM Book b1 WHERE b.Author="Марк Твен")
 8. SELECT ISBN FROM Copy GROUP BY ISBN HAVING COUNT(*)>1
 9. SELECT * FROM Book ORDER BY PubYear LIMIT 10
-10. ДОДЕЛАТЬ!!!!!!!!!!
+10. WITH getSubCatsOfSport(cat) AS (
+	(SELECT c1.CategoryName FROM Category c1 WHERE ParentCat = "Спорт")
+    UNION
+	(SELECT c2.CategoryName FROM Category c2 WHERE c2.ParentCat = ANY (get CategoryName FROM getSubCatsOfSport))
+) SELECT * FROM getSubCatsOfSport
 
 ### Task 2
 1. INSERT INTO Borrowing VALUES((SELECT ID FROM Reader WHERE FirstName="Василий" AND LastName="Петров"), 123456, 4, NOW() + interval '7' day)
