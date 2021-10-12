@@ -12,7 +12,7 @@
 ### Задача 2.1
 CopyBook({[<ins>number: Int</ins>, position: int, book_isbn: int]})
 
-taken({[<ins>reader_number: int, book_number: int</ins>, return_date: date]})
+taken({[<ins>reader_number: int, book_number: int, return_date: date</ins>]})
 
 Reader({[<ins>number: int</ins>, surname: string, name: string, address: string, date_of_birth: date]})
   
@@ -28,19 +28,29 @@ Category({[<ins>name: string</ins>, parent_category_name: string]})
 
 Country({[<ins>id: int</ins>]})
 
-City({[<ins>id: int</ins>, country_id: int]})
+City({[<ins>id: int, country_id: int</ins>]})
 
-Street({[<ins>id: int</ins>, city_id: int]})
+Street({[<ins>id: int, city_id: int, country_id: int</ins>]})
 
-Building({[<ins>id: int</ins>, street_id: int]})
+Building({[<ins>id: int, street_id: int, city_id: int, country_id: int</ins>]})
 
-Flat({[<ins>id: int</ins>, building_id: int]})
+Flat({[<ins>id: int, building_id: int, street_id: int, city_id: int, country_id: int</ins>]})
 
 2. Пункт
+
+#### Если один (арбитр) ко многим
 
 Arbitrator({[<ins>id: int</ins>]})
 
 Team({[<ins>id: int</ins>, enemy_team_id: int, arbitrator_id: int]})
+
+#### Если многий ко многим
+
+Arbitrator({[<ins>id: int</ins>]})
+
+Team({[<ins>id: int</ins>]})
+
+Game({<ins>arbitrator_id: int, host_id: int, guest: id</ins>})
 
 3. Пункт
 
@@ -73,9 +83,9 @@ Doctor({[<ins>persNr</ins>, area, rank]})
 
 Station({[<ins>staNr</ins>, name]})
 
-Room({[<ins>roomNr</ins>, beds, staNr]})
+Room({[<ins>roomNr, staNr</ins>, beds, staNr]})
 
-Patient({[<ins>patientNr</ins>, name, disease, doctorNr]})
+Patient({[<ins>patientNr</ins>, name, disease, persNr]})
 
 Addmision({[<ins>patientNr</ins>, roomNr, from, admission_from, amission_to]})
 

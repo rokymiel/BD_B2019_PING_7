@@ -17,10 +17,11 @@ Entities:
 
 ### Дома и улицы:
 Entities:
-* Flat: {[<ins>FlatId</ins>, HouseId]}
-* House: {[<ins>HouseId</ins>, StreetId]}
-* Street: {[<ins>StreetId</ins>, CityId]}
-* City: {[<ins>CityId</ins>, CountryId]}
+* Flat: {[<ins>FlatId</ins>, <ins>HouseId</ins>, <ins>StreetId</ins>,
+<ins>CityId</ins>, <ins>CountryId</ins>]}
+* House: {[<ins>HouseId</ins>, <ins>StreetId</ins>, <ins>CityId</ins>, <ins>CountryId</ins>]}
+* Street: {[<ins>StreetId</ins>, <ins>CityId</ins>, <ins>CountryId</ins>]}
+* City: {[<ins>CityId</ins>, <ins>CountryId</ins>]}
 * Country: {[<ins>CountryId</ins>]}
 
 ### Футбольные команды:
@@ -55,9 +56,9 @@ Entities:
 
 ### Госпиталь:
 Entities:
-* StationPersonell: {[<ins>PersNr</ins>, #Name, StationNr, Type]}
+* StationPersonell: {[<ins>PersNr</ins>, #Name, StationNr]}
 * Caregiver: {[<ins>PersNr</ins>, Qualification]}
 * Doctor: {[<ins>PersNr</ins>, Area, Rank]}
-* Patient: {[<ins>PatientNr</ins>, Name, Disease, TreatingDoctorNr, AdmissionFrom, AdmissionTo, AdmissionRoomNr]}
+* Patient: {[<ins>PatientNr</ins>, Name, Disease, PersNr, AdmissionFrom, AdmissionTo, AdmissionRoomNr]}
 * Station: {[<ins>StatNr</ins>, Name]}
-* Room: {[<ins>RoomNr</ins>, #Beds, StationNr]}
+* Room: {[<ins>RoomNr</ins>, #Beds, <ins>StationNr</ins>]}

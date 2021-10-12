@@ -16,25 +16,25 @@
 
 * Publisher: {[<ins>PubID</ins>: int, Name: string, Address: string]}
 
-* Category: {[<ins>CategoryID</ins>: int, Name: string, ParentCategoryID: int]}
+* Category: {[<ins>Name: string</ins>, ParentCategoryName: string]}
 
 <b>Relationships</b> (Publishes, IsCopy, IsSubCategory relationships are merged according to lecture rule #3):
 
-* HasCategory (Book - Category): {[<ins>ISBN</ins>: int, <ins>CategoryID</ins>: int]}
+* has_category (Book - Category): {[<ins>ISBN</ins>: int, <ins>CategoryName</ins>: string]}
 
-* ChecksOut (Reader - BookCopy): {[<ins>BookCopyNumber</ins>: int, <ins>ISBN</ins>: int, <ins>ReaderNumber</ins>: int, ReturnDate: date]}
+* checks_out (Reader - BookCopy): {[<ins>BookCopyNumber</ins>: int, <ins>ISBN</ins>: int, <ins>ReaderNumber</ins>: int, <ins>ReturnDate</ins>: date]}
 
 ### <b>Countries and Cities and so on</b>:
 
 <b>Entities</b>:
 
-* Apartment: {[<ins>ApartmentID</ins>: int, HouseID: int]}
+* Apartment: {[<ins>ApartmentID</ins>: int, <ins>BuildingID</ins>: int, <ins>StreetID</ins>: int, <ins>CityID</ins>: int, <ins>CountryID</ins>: int]}
 
-* House: {[<ins>HouseID</ins>: int, StreetID: int]}
+* Building: {[<ins>BuildingID</ins>: int, <ins>StreetID</ins>: int, <ins>CityID</ins>: int, <ins>CountryID</ins>: int]}
 
-* Street: {[<ins>StreetID</ins>: int, CityID: int]}
+* Street: {[<ins>StreetID</ins>: int, <ins>CityID</ins>: int, <ins>CountryID</ins>: int]}
 
-* City: {[<ins>CityID</ins>: int, CountryID: int]}
+* City: {[<ins>CityID</ins>: int, <ins>CountryID</ins>: int]}
 
 * Country: {<ins>CountryID</ins>: int}
 
@@ -49,7 +49,7 @@
 
 <b>Relationships</b>:
 
-* SoccerMatch: (Team - Team - Referree): {[<ins>Team1ID</ins>: int, <ins>Team2ID</ins>: int, ReferreeID: int]}
+* plays_match: (Team - Team - Referree): {[<ins>Team1ID</ins>: int, <ins>Team2ID</ins>: int, ReferreeID: int]}
 
 ### <b>Sweet Home Alabama</b>:
 
@@ -91,14 +91,15 @@
 
 <b>Entities</b>:
 
-StationPersonell: {[<ins>PersNr</ins>: int, #Name: string, StationNr: int, EmployeeType: string]}
+StationPersonell: {[<ins>PersNr</ins>: int, #Name: string, StationNr: int]}
 
 Caregiver: {[<ins>PersNr</ins>: int, Qualification: string]}
 
 Doctor: {[<ins>PersNr</ins>: int, Area: string, Rank: int]}
 
-Room: {[<ins>RoomNr</ins>: int, #Beds: int, StationNr: int]}
+Room: {[<ins>RoomNr</ins>: int, 
+<ins>StationNr: int</ins>, #Beds: int]}
 
 Station: {[<ins>StatNr</ins>: int, Name: string]}
 
-Patient: {[<ins>PatientNr</ins>: int, Name: string, Disease: string, TreatingDoctorNr: int, AdmissionFrom: string, AdmissionTo: string, AdmissionRoomNr: int]}
+Patient: {[<ins>PatientNr</ins>: int, Name: string, Disease: string, PersNr: int, AdmissionFrom: string, AdmissionTo: string, AdmissionRoomNr: int]}

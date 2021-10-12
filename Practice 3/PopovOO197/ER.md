@@ -1,10 +1,13 @@
-Ссылка на lucid chart:
-ER to relational schema:
-https://lucid.app/lucidchart/354a2cc0-cc5e-4f62-8562-3d502e9bd68d/edit?beaconFlowId=61367D40171FDB43&invitationId=inv_764ce513-2c2e-4845-9366-1f109b21bbed&page=0_0#
-![alt text](https://lucid.app/publicSegments/view/6072bee4-e58b-4ae0-9c40-d700c40922d9/image.png)
-Task 3.1:
-Page 1 in https://lucid.app/lucidchart/1dd053fa-d500-478b-826b-e337b8ed8b6a/edit?beaconFlowId=1E90A7DD3446F06E&invitationId=inv_bff4197d-50ea-4dda-bacf-76added30cc6&page=0_0#
-![alt text](https://lucid.app/publicSegments/view/39451e15-d30f-4c2c-9549-3c7092b5b222/image.png)
-Task 3.2:
-Page 2 in https://lucid.app/lucidchart/1dd053fa-d500-478b-826b-e337b8ed8b6a/edit?beaconFlowId=1E90A7DD3446F06E&invitationId=inv_bff4197d-50ea-4dda-bacf-76added30cc6&page=YoOcL6QdwoS.#
-![alt text](https://lucid.app/publicSegments/view/5a9ee9f9-0acc-48a1-86a0-c39ae4e852e7/image.png)
+### Почему любое отношение в реляционной схеме имеет по крайней мере один ключ?
+Ключ - уникальный идентификатор, по которому можно проводить операции над сущностью.
+С помощью этого ключа другие сущности могут ссылаться на эту, образуя связи.
+Тогда, если ключа нет, мы не сможем индентифицировать отношение, оно не сможет образовать корректную связь с другими отношениями.
+### ER to relational schema:
+https://lucid.app/lucidchart/b1057730-5f84-4e59-be6c-99ab4714c5f2/edit?viewport_loc=-2153%2C-1119%2C5129%2C2331%2C0_0&invitationId=inv_4b4153be-0300-4a1d-be17-4075716635fd
+Фото: ![alt text](https://lucid.app/publicSegments/view/cbc417eb-eef2-43c3-85aa-c08469020092/image.png)
+### Task 3.1:
+Page 1 in https://lucid.app/lucidchart/1dd053fa-d500-478b-826b-e337b8ed8b6a/edit?invitationId=inv_bff4197d-50ea-4dda-bacf-76added30cc6
+Фото: ![alt text](https://lucid.app/publicSegments/view/39451e15-d30f-4c2c-9549-3c7092b5b222/image.png)
+### Task 3.2:
+Page 2 in https://lucid.app/lucidchart/1dd053fa-d500-478b-826b-e337b8ed8b6a/edit?invitationId=inv_bff4197d-50ea-4dda-bacf-76added30cc6
+Фото: ![alt text](https://lucid.app/publicSegments/view/5a9ee9f9-0acc-48a1-86a0-c39ae4e852e7/image.png)
