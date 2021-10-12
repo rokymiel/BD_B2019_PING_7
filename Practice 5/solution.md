@@ -1,10 +1,10 @@
 # Задача 1
+Запросы 2 и 6 посчитаны как для уникальных объектов (вроде, так можно было)б
 ### Запрос 1.
 Показать все названия книг вместе с именами издателей.
 
 ```sql
-SELECT B.Title, P.PubName FROM
-Book B JOIN Publisher P ON B.PubName = P.PubName
+SELECT B.Title, B.PubName FROM Book B
 ```
 
 ### Запрос 2.
@@ -36,7 +36,7 @@ Book B WHERE B.PagesNum > (SELECT 2 * AVG(B.PagesNum) FROM Book B)
 
 ```sql
 SELECT C.CategoryName FROM
-Category C WHERE C.CategoryName IN (SELECT DISTINCT C.ParentCat FROM Category C)
+Category C WHERE C.CategoryName IN (SELECT C.ParentCat FROM Category C WHERE C.ParentCat IS NOT NULL)
 ```
 
 ### Запрос 6.
