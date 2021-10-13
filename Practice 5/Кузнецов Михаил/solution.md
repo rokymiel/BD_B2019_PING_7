@@ -69,9 +69,9 @@
  ## Задание 2
  ### Добавьте запись о бронировании читателем ‘Василеем Петровым’ книги с ISBN 123456 и номером копии 4.
  ```sql
- INSERT INTO Borrowing(ReaderNr, ISBN, CopyNumber)
- SELECT R.ID, '123456', 4 FROM Reader R 
- WHERE R.FirstName = 'Василий' AND R.LastName = 'Петров' LIMIT 1
+INSERT INTO bookings(reader_number, isbn, copy_number, return_date)
+SELECT readers.number, '123456', 4, '2021-11-22' FROM readers
+WHERE readers.first_name = 'Василий' AND readers.last_name = 'Петров'
  ```
  ### Удалить все книги, год публикации которых превышает 2000 год.
  ```sql
