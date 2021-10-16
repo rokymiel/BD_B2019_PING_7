@@ -73,15 +73,13 @@ Connected: {[**station1_id**, **station2_id**, **train_id**, departure, arrival]
 ### Больничка
 
 **StationPersonnel**: {[**pers_id**, name, station_id]}
-**Station**: {[**station_id**, name]}
-**Doctor**: {[**doctor_id**, area, rank]}
-**Caregiver**: {[**caregiver_id**, qualification]}
-**Room**: {[**room_id**, beds, station_id]}
-**Patient**: {[**patient_id**, name, disease, station_id, room_id, admission_from, admission_to, doctor_id]}
 
-StationPersonell: {[persNr, #name, stationNr]}
-Station: {[statNr, name]}
-Room: {[stationNr, roomNr, #beds]}
-Patient: {[patientNr, name, disease, doctorPersNr, stationNr, roomNr, admissionFrom, amissionTo]}
-Doctor: {[persNr, area, rank]}
-Caregiver: {[persNr, qualification]}
+**Station**: {[**station_id**, name]}
+
+**Doctor**: {[**doctor_id**, area, rank]}
+
+**Caregiver**: {[**caregiver_id**, qualification]}
+
+**Room**: {[**room_id**, beds, station_id]}
+
+**Patient**: {[**patient_id**, name, disease, station_id, room_id, admission_from, admission_to, doctor_id]}
