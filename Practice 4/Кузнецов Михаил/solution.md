@@ -15,26 +15,22 @@ Borrowing.ISBN = Book.ISBN
 ```
 ### Пункт в)
 ```sql
-SELECT ISBN FROM BookCat b1
-WHERE b1.CategoryName = 'Горы'
-AND NOT EXISTS (
-SELECT * FROM BookCat b2
-WHERE b2.ISBN = b1.ISBN AND b2.CategoryName = 'Путешествия'
-)
+SELECT DISTINCT ISBN FROM BookCat
+WHERE BookCat.CategoryName = 'Горы'
+EXCEPT
+SELECT ISBN FROM BookCat
+WHERE BookCat.CategoryName = 'Путешествия'
 ```
 ### Пункт г)
 ```sql
-SELECT DISTINCT LastName, FirstName FROM Reader, Borrowing bor
-WHERE Reader.ID = bor.ReaderNr AND EXISTS (
-    SELECT * FROM Borrowing
-    WHERE bor.ISBN = Borrowing.ISBN AND bor.CopyNumber = Borrowing.CopyNumber AND
-    bor.ReturnDate > Borrowing.ReturnDate
-)
+SELECT DISTINCT Reader.LastName, Reader.FirstName FROM Reader, Borrowing
+WHERE Reader.ID = Borrowing.ReaderNr AND Borrowing.ReturnDate < DATE()
+
 ```
 ### Пункт д)
 ```sql
 SELECT DISTINCT LastName, FirstName FROM Reader, Borrowing
-WHERE Reader.ID = Borrowing.ReaderNr AND NOT (FirstName = 'Иван' and LastName = 'Иванов')
+WHERE Reader.ID = Borrowing.ReaderNr AND NOT (FirstName = 'Иван' AND LastName = 'Иванов')
 AND Borrowing.ISBN in (
     SELECT DISTINCT Borrowing.ISBN FROM Borrowing
     WHERE Borrowing.ReaderNr in (
@@ -47,26 +43,43 @@ AND Borrowing.ISBN in (
 ### Пункт a)
 ```sql
 SELECT DISTINCT Connection.TrainNr, Connection.Departure, Connection.Arrival FROM Connection
-WHERE Connection.FromStation = 'Москва' AND Connection.ToStation = 'Тверь'
+JOIN Station startST ON startST.Name = Connection.FromStation
+JOIN Station endST ON endST.Name = Connection.ToStation
+WHERE startST.CityName = 'Москва' AND endST.CityName = 'Тверь'
 ```
 ### Пункт б)
 ```sql
-SELECT TrainNr FROM Connection s
-WHERE s.FromStation = 'Москва' AND s.EndStationName = 'Санкт-Петербург' AND DAY(MultiSegment.Departure) = DAY(MultiSegment.Arrival) AND
-EXISTS (
-    SELECT * FROM Connection c
-    WHERE c.EndStationName = s.FromStation OR c.StartStationName = s.EndStationName OR
-    (c.FromStation = s.FromStation AND not c.EndStationName = s.EndStationName) OR
-    (not c.FromStation = s.FromStation AND c.EndStationName = s.EndStationName)
+SELECT DISTINCT Connection.TrainNr, Connection.Departure, Connection.Arrival FROM Connection
+JOIN Station startST ON startST.Name = Connection.FromStation
+JOIN Station endST ON endST.Name = Connection.ToStation
+WHERE startST.CityName = 'Москва' AND endST.CityName = 'Санкт-Петербург' 
+AND DAY(Connection.Departure) = DAY(Connection.Arrival)
+AND Connection.TrainNr in (
+    SELECT Connection.TrainNr FROM Connection
+    GROUP BY Connection.TrainNr HAVING COUNT(Connection.TrainNr) > 1
 )
 ```
 ### Пункт в)
-если отношение "Connection" не содержит дополнительных кортежей для транзитивного замыкания, то можно находить необходимый путь при помощи прохода `FROM Connection с1, Connection с2`, а остальное оставить без изменений
-
-То есть, чтобы найти путь, который может быть не указан явно в отнощшении,  можно:
+Изменениия для а)
 ```sql
-SELECT TrainNr FROM Connection c1, Connection c2
-WHERE c1.FromStation = 'Москва' AND c2.EndStationName = 'Санкт-Петербург'
+SELECT DISTINCT conFrom.TrainNr, conFrom.Departure, conTo.Arrival FROM Connection conFrom
+JOIN Connection conTo ON conFrom.TrainNr = conTo.TrainNr
+JOIN Station startST ON startST.Name = conFrom.FromStation
+JOIN Station endST ON endST.Name = conTo.ToStation
+WHERE startST.CityName = 'Москва' AND endST.CityName = 'Тверь'
+```
+Изменениия для б)
+```sql
+SELECT DISTINCT conFrom.TrainNr, conFrom.Departure, conTo.Arrival FROM Connection conFrom
+JOIN Connection conTo ON conFrom.TrainNr = conTo.TrainNr
+JOIN Station startST ON startST.Name = conFrom.FromStation
+JOIN Station endST ON endST.Name = conTo.ToStation
+WHERE startST.CityName = 'Москва' AND endST.CityName = 'Санкт-Петербург' 
+AND DAY(conFrom.Departure) = DAY(conTo.Arrival)
+AND conFrom.TrainNr in (
+    SELECT Connection.TrainNr FROM Connection
+    GROUP BY Connection.TrainNr HAVING COUNT(Connection.TrainNr) > 1
+)
 ```
 ## Задание 3
 Пусть нам даны две таблицы **A** и **B**. 
