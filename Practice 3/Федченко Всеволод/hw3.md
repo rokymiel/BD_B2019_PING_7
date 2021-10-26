@@ -17,9 +17,9 @@
 ### 2.2
 #### Пункт 1
 Сущности:
-- Квартира: {[<ins>Номер квартиры</ins>, номер дома]}
-- Дом: {[<ins>Номер дома</ins>, Номер улицы]}
-- Улица: {[<ins>Номер улицы</ins>, Номер города]}
+- Квартира: {[<ins>Номер квартиры</ins>, Номер дома, Номер улицы, Номер города, Номер страны]}
+- Дом: {[<ins>Номер дома</ins>, Номер улицы, Номер города, Номер страны]}
+- Улица: {[<ins>Номер улицы</ins>, Номер города, Номер страны]}
 - Город: {[<ins>Номер города</ins>, Номер страны]}
 - Страна: {[<ins>Номер страны</ins>]}
 
@@ -61,5 +61,5 @@
 - Caregiver: {[<ins>PersNr</ins>, Qualification]}
 - Doctor: {[<ins>PersNr</ins>, Area, Rank]}
 - Station: {[<ins>StatNr</ins>, Name]}
-- Patient: {[<ins>PatientNr</ins>, Name, Disease, PersNr, AdmissionFrom, AdmissionTo, RoomNr]}
+- Patient: {[<ins>PatientNr</ins>, Name, Disease, PersNr, from, to, RoomNr]}
 - Room: {[<ins>RoomNr</ins>, Beds, StatNr]}
