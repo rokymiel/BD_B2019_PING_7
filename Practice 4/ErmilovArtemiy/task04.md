@@ -55,10 +55,11 @@ where Borrowing.ISBN in (
 а) Найдите все прямые рейсы из Москвы в Тверь.
 
 ```sql
-select distinct TrainNr
-from Connection
-where Connection.FromStation = 'Москва' and Connection.ToStation = 'Тверь';
-
+select distinct Connection.TrainNr 
+from Connection 
+inner join Station start on start.Name = Connection.FromStation
+inner join Station end on end.Name = Connection.ToStation
+where start.CityName = 'Москва' and end.CityName = 'Тверь'
 ```
 
 б) Найдите все многосегментные маршруты, имеющие точно однодневный трансфер из Москвы в Санкт-Петербург (первое отправление и прибытие в конечную точку должны быть в одну и ту же дату). Вы можете применить функцию DAY () к атрибутам Departure и Arrival, чтобы определить дату.
@@ -77,6 +78,16 @@ where Connection.FromStation = 'Москва'
 ```
 
 в) Что изменится в выражениях для а) и б), если отношение "Connection" не содержит дополнительных кортежей для транзитивного замыкания, поэтому многосегментный маршрут Москва-> Тверь-> Санкт-Петербург содержит только кортежи Москва-> Тверь и Тверь-Санкт-Петербург?
+
+Измененный a) :
+```sql
+select distinct connFrom.TrainNr 
+from Connection connFrom
+inner join Connection connTo on connFrom.TrainNr = connTo.TrainNr
+inner join Station start on start.Name = connFrom.FromStation
+inner join Station end on end.Name = connTo.ToStation
+where start.CityName = 'Москва' and end.CityName = 'Тверь'
+```
 
 Измененный б) :
 ```sql
@@ -105,7 +116,7 @@ where julianday(dep.Departure) = julianday(arr.Arrival)
 
 Для выполнения Full Outer Join по некоторым общим столбцам **x<sub>1</sub>, ... x<sub>p</sub>**, джойнятся все строки наших таблиц, у которых совпадают все столбцы, при этом при нехватке значений в других столбцах производится заполнение `null`'ом.
 
-Так как Full Outer Join по сути есть кобминирование результатов Left Outer Join и Right Outer Join, можем выразить его следующим образом (где IJ - Inner Join):
+Так как Full Outer Join по сути есть комбинирование результатов Left Outer Join и Right Outer Join, можем выразить его следующим образом (где IJ - Inner Join):
 
 **IJ = π<sub>a<sub>1</sub> ... a<sub>n</sub>, b<sub>1</sub> ... b<sub>m</sub> </sub>(σ<sub>∀i A.x<sub>i</sub> = B.x<sub>i</sub></sub>(A×B))**
 
