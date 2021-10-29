@@ -8,7 +8,7 @@ select e.event_id from events e, results r
 where e.is_team_event=0 and e.event_id=r.event_id and r.medal='GOLD'
 group by e.event_id having COUNT(*)>1
 
-// Я решил не сравнивать результаты золотых медалистов вручную. Т.е. я считаю: несколько участников получили золотую медаль => у них был одинаковый резултат
+// Я решил не сравнивать результаты золотых медалистов вручную. Т.е. я считаю: несколько участников получили золотую медаль => у них был одинаковый результат
 
 ### task 3
 select distinct p.name, o.olympic_id from players p, olympics o, events e, results r
