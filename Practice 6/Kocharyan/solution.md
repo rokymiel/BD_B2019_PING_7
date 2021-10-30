@@ -10,13 +10,13 @@ SELECT
   DATE_PART('year', Players.birthdate) as byear,
   COUNT(DISTINCT Players.player_id),
   COUNT(Results.medal)
-    FROM Olympics
-JOIN Events 
-  ON Events.olympic_id = Olympics.olympic_id
-JOIN Results 
-  ON Events.event_id = Results.event_id
-JOIN Players 
-  ON Players.player_id = Results.player_id
+    FROM Olympics o
+JOIN Events e
+  ON e.olympic_id = o.olympic_id
+JOIN Results r
+  ON e.event_id = r.event_id
+JOIN Players p
+  ON p.player_id = r.player_id
 WHERE year = 2004 
   AND Results.medal = 'GOLD' 
 GROUP BY 1;
