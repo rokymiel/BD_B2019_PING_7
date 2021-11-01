@@ -20,7 +20,8 @@ where o.olympic_id=e.olympic_id and e.event_id=r.event_id and r.player_id=p.play
 ### task 4
 select c.country_id from countries c, players p
 WHERE p.name ~* '^[aeiou]' and c.country_id=p.country_id
-group by c.country_id order by COUNT(1) desc limit 1
+group by c.country_id order by COUNT(*)/(select COUNT(*) from players p1 WHERE c.country_id=p1.country_id ) 
+desc limit 1
 
 ### task 5
 select c.country_id from countries c, olympics o, players p, events e, results r
