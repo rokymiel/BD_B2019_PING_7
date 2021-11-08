@@ -10,8 +10,14 @@ import java.util.concurrent.ThreadLocalRandom
 import kotlin.random.Random.Default.nextFloat
 import kotlin.random.Random.Default.nextInt
 
-private const val defaultSize = 100
-private const val charPool = "qwertyuiopasdfghjklzxcvbnm"
+private val TABLES = listOf("Countries", "Events", "Olympics", "Players", "Results")
+private const val CHAR_POOL = "qwertyuiopasdfghjklzxcvbnm"
+
+fun rndSize(position: Int): Int {
+    val size = nextInt(150)
+    println("Random number for table ${TABLES[position]}: $size")
+    return size
+}
 
 fun getDate(): LocalDate {
     val minDay = LocalDate.of(1900, 1, 1).toEpochDay()
@@ -21,8 +27,8 @@ fun getDate(): LocalDate {
 }
 
 fun randomStringWithLength(length: Int) = ((1..length)
-    .map { nextInt(0, charPool.length) }
-    .map(charPool::get)
+    .map { nextInt(0, CHAR_POOL.length) }
+    .map(CHAR_POOL::get)
     .joinToString("")).capitalize()
 
 fun getValid(length: Int, checker: (String) -> Boolean, converter: (String) -> String = { it }): Pair<String, String> {
@@ -48,11 +54,11 @@ fun main(args: Array<String>) {
         args[1]
     )
 
-    val countriesNumb = if (args.size >= 7) args[6].toIntOrNull() ?: defaultSize else defaultSize
-    val eventsNumb = if (args.size >= 6) args[5].toIntOrNull() ?: defaultSize else defaultSize
-    val olympicsNumb = if (args.size >= 5) args[4].toIntOrNull() ?: defaultSize else defaultSize
-    val playersNumb = if (args.size >= 4) args[3].toIntOrNull() ?: defaultSize else defaultSize
-    val resultsNumb = if (args.size >= 3) args[2].toIntOrNull() ?: defaultSize else defaultSize
+    val countriesNumb = if (args.size >= 7) args[6].toIntOrNull() ?: rndSize(0) else rndSize(0)
+    val eventsNumb = if (args.size >= 6) args[5].toIntOrNull() ?: rndSize(1) else rndSize(1)
+    val olympicsNumb = if (args.size >= 5) args[4].toIntOrNull() ?: rndSize(2) else rndSize(2)
+    val playersNumb = if (args.size >= 4) args[3].toIntOrNull() ?: rndSize(3) else rndSize(3)
+    val resultsNumb = if (args.size >= 3) args[2].toIntOrNull() ?: rndSize(4) else rndSize(4)
 
     transaction {
         SchemaUtils.createMissingTablesAndColumns(Countries, Olympics, Players, Events, Results)
