@@ -1,0 +1,1 @@
+java -jar "BdFaker\out\artifacts\BdFaker_jar\BdFaker.jar"
