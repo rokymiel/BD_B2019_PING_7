@@ -18,6 +18,8 @@ if args.seed != None:
 faker = Faker()
 
 random_choices = lambda arr: faker.random.choice(arr)
+
+
 def generate_countries():
     for _ in range(args.c):
         id = faker.unique.country_code()
@@ -50,7 +52,8 @@ def generate_olympics():
         start_date = faker.date_object().replace(year=year)
         end_date = start_date + timedelta(days=14)
 
-        cursor.execute("INSERT INTO Olympics VALUES(%s, %s, %s, %s, %s, %s)", (id, country, city, year, start_date, end_date))
+        cursor.execute("INSERT INTO Olympics VALUES(%s, %s, %s, %s, %s, %s)",
+                       (id, country, city, year, start_date, end_date))
         olympic_ids.append(id)
 
 
@@ -78,7 +81,8 @@ def generate_events():
             name += ' '
         name += random_choices(["Men", "Women"])
 
-        cursor.execute("INSERT INTO Events VALUES(%s, %s, %s, %s, 0, -1, %s)", (id, name, type, olympic, result_noted_in))
+        cursor.execute("INSERT INTO Events VALUES(%s, %s, %s, %s, 0, -1, %s)",
+                       (id, name, type, olympic, result_noted_in))
         event_ids.append(id)
 
 
@@ -93,6 +97,7 @@ def generate_results():
                 while second_player == player:
                     second_player = random_choices(player_ids)
                 cursor.execute("INSERT INTO Results VALUES(%s, %s, %s, %s)", (event_id, second_player, medal, score))
+
 
 connection = psy.connect(args.url)
 cursor = connection.cursor()
