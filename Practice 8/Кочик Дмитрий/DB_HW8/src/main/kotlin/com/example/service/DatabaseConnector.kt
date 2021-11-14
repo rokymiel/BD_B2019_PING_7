@@ -8,7 +8,7 @@ import java.time.LocalDate
 import java.util.concurrent.ThreadLocalRandom
 import kotlin.random.Random
 
-class DatabaseAccessor {
+class DatabaseConnector {
     private val textLength = 20
     private val charPool = "qwertyuiopasdfghjklzxcvbnm"
     private val tables = listOf(BookCategories, Books, Borrowings, Categories, Copies, Publishers, Readers)

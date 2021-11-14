@@ -1,20 +1,20 @@
 package com.example.plugins
 
 import com.example.model.*
-import com.example.service.DatabaseAccessor
+import com.example.service.DatabaseConnector
 import io.ktor.routing.*
 import io.ktor.http.*
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.request.*
 
-fun Application.configureRouting(accessor: DatabaseAccessor) {
+fun Application.configureRouting(connector: DatabaseConnector) {
     routing {
-        dbRouting(accessor)
+        dbRouting(connector)
     }
 }
 
-fun Route.dbRouting(accessor: DatabaseAccessor) {
+fun Route.dbRouting(connector: DatabaseConnector) {
     route("/db") {
         get("/fill/{size}") {
             val size = call.parameters["size"]?.toIntOrNull()
@@ -22,7 +22,7 @@ fun Route.dbRouting(accessor: DatabaseAccessor) {
                 call.respond(HttpStatusCode.BadRequest)
                 return@get
             }
-            accessor.fillAllTables(size)
+            connector.fillAllTables(size)
             call.respond(HttpStatusCode.Created)
         }
 
@@ -30,14 +30,14 @@ fun Route.dbRouting(accessor: DatabaseAccessor) {
             val params = call.request.queryParameters
             val tableName = call.parameters["table"] ?: throw IllegalStateException("Must provide table name")
             when (tableName) {
-                Books.tableName -> call.respond(HttpStatusCode.OK, accessor.getBooks(params))
-                Copies.tableName -> call.respond(HttpStatusCode.OK, accessor.getBookCopies(params))
-                Borrowings.tableName -> call.respond(HttpStatusCode.OK, accessor.getBorrowings(params))
+                Books.tableName -> call.respond(HttpStatusCode.OK, connector.getBooks(params))
+                Copies.tableName -> call.respond(HttpStatusCode.OK, connector.getBookCopies(params))
+                Borrowings.tableName -> call.respond(HttpStatusCode.OK, connector.getBorrowings(params))
 
-                Categories.tableName -> call.respond(HttpStatusCode.OK, accessor.getCategories())
-                BookCategories.tableName -> call.respond(HttpStatusCode.OK, accessor.getBookCategories())
-                Publishers.tableName -> call.respond(HttpStatusCode.OK, accessor.getPublishers())
-                Readers.tableName -> call.respond(HttpStatusCode.OK, accessor.getReaders())
+                Categories.tableName -> call.respond(HttpStatusCode.OK, connector.getCategories())
+                BookCategories.tableName -> call.respond(HttpStatusCode.OK, connector.getBookCategories())
+                Publishers.tableName -> call.respond(HttpStatusCode.OK, connector.getPublishers())
+                Readers.tableName -> call.respond(HttpStatusCode.OK, connector.getReaders())
                 else -> call.respond(HttpStatusCode.BadRequest)
             }
         }
@@ -49,9 +49,9 @@ fun Route.dbRouting(accessor: DatabaseAccessor) {
                 return@post
             }
             when (tableName) {
-                Books.tableName -> accessor.addBook(call.receive())
-                Copies.tableName -> accessor.addBookCopy(call.receive())
-                Borrowings.tableName -> accessor.addBorrowing(call.receive())
+                Books.tableName -> connector.addBook(call.receive())
+                Copies.tableName -> connector.addBookCopy(call.receive())
+                Borrowings.tableName -> connector.addBorrowing(call.receive())
                 else -> {
                     call.respond(HttpStatusCode.BadRequest)
                     return@post
@@ -67,9 +67,9 @@ fun Route.dbRouting(accessor: DatabaseAccessor) {
                 return@put
             }
             when (tableName) {
-                Books.tableName -> accessor.updateBook(call.receive())
-                Copies.tableName -> accessor.updateBookCopy(call.receive())
-                Borrowings.tableName -> accessor.updateBorrowing(call.receive())
+                Books.tableName -> connector.updateBook(call.receive())
+                Copies.tableName -> connector.updateBookCopy(call.receive())
+                Borrowings.tableName -> connector.updateBorrowing(call.receive())
                 else -> {
                     call.respond(HttpStatusCode.BadRequest)
                     return@put
@@ -86,9 +86,9 @@ fun Route.dbRouting(accessor: DatabaseAccessor) {
                 return@delete
             }
             when (tableName) {
-                Books.tableName -> accessor.deleteBook(params)
-                Copies.tableName -> accessor.deleteBookCopy(params)
-                Borrowings.tableName -> accessor.deleteBorrowing(params)
+                Books.tableName -> connector.deleteBook(params)
+                Copies.tableName -> connector.deleteBookCopy(params)
+                Borrowings.tableName -> connector.deleteBorrowing(params)
                 else -> {
                     call.respond(HttpStatusCode.BadRequest)
                     return@delete

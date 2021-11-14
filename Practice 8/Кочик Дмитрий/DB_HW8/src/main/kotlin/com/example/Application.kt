@@ -1,9 +1,8 @@
 package com.example
 
-import com.example.model.Readers
 import io.ktor.server.netty.*
 import com.example.plugins.*
-import com.example.service.DatabaseAccessor
+import com.example.service.DatabaseConnector
 import com.example.service.DatabaseFactory
 import io.ktor.application.*
 import io.ktor.features.*
@@ -16,10 +15,10 @@ fun main(args: Array<String>) {
 }
 
 fun Application.module() {
-    val accessor = DatabaseAccessor()
-    accessor.initTables()
+    val connector = DatabaseConnector()
+    connector.initTables()
     install(ContentNegotiation) {
         json(Json { prettyPrint = true })
     }
-    configureRouting(accessor)
+    configureRouting(connector)
 }
