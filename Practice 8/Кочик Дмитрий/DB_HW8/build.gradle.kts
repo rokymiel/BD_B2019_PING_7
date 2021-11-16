@@ -6,6 +6,8 @@ plugins {
     application
     kotlin("jvm") version "1.5.31"
     kotlin("plugin.serialization") version "1.5.31"
+    id("com.jetbrains.exposed.gradle.plugin") version "0.2.1"
+    id("org.flywaydb.flyway") version "8.0.4"
 }
 
 group = "com.example"
@@ -18,6 +20,31 @@ repositories {
     mavenCentral()
 }
 
+//flyway {
+//    url = "jdbc:postgresql://localhost:5432/postgres"
+//    baselineOnMigrate = true
+//    locations = arrayOf("classpath:db/migration")
+//    user = "postgres"
+//    password = "123"
+//}
+
+//exposedCodeGeneratorConfig {
+//    val dbProperties = loadProperties("${projectDir}/db.properties")
+//    configFilename = "exposedConf.yml"
+//    user = dbProperties["dataSource.user"].toString()
+//    password = dbProperties["dataSource.password"].toString()
+//    databaseName = dbProperties["dataSource.database"].toString()
+//    databaseDriver = dbProperties["dataSource.driver"].toString()
+//}
+
+//sourceSets.main {
+//    java.srcDirs("build/tables")
+//}
+//
+//tasks.generateExposedCode {
+//    dependsOn("clean")
+//}
+
 dependencies {
     implementation("io.ktor:ktor-server-core:$ktor_version")
     implementation("io.ktor:ktor-server-netty:$ktor_version")
@@ -29,8 +56,12 @@ dependencies {
     implementation("org.jetbrains.exposed:spring-transaction:0.36.1")
     implementation("org.postgresql:postgresql:42.1.4")
     implementation("org.jetbrains.exposed:exposed-java-time:0.30.1")
+    implementation("org.jetbrains.exposed:exposed-core:0.35.2")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.35.2")
 
     implementation("com.zaxxer:HikariCP:5.0.0")
 
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.2.0")
+
+    implementation("org.flywaydb:flyway-core:7.10.0")
 }

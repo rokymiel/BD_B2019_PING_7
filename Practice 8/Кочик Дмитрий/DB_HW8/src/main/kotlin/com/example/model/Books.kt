@@ -7,7 +7,7 @@ object Books : Table() {
     val ISBN = text("ISBN").uniqueIndex()
     val title = text("title")
     val author = text("author")
-    val pagesNum = integer("pagesNum")
+    val pagesNum = integer("pagesNumb")
     val pubYear = integer("pubYear")
     val pubName = text("pubName").references(Publishers.pubName)
 }
