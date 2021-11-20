@@ -1,0 +1,1 @@
+java -jar "libraryBD\build\libs\libraryBD-0.0.1-SNAPSHOT.jar"
