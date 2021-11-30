@@ -13,6 +13,13 @@
 > 
 > Постройте закрытие атрибута (Attribute Closure )(BD)+
 
+1. Изначально (B, D), так как (BD)+
+2. D → EG => Добавляем E, G => (B, D, E, G)
+3. BE → C => Добавляем C => (B, C, D, E, G)
+4. C → A => Добавляем A => (A, B, C, D, E, G)
+
+Получаем, что замыкание это все (A, B, C, D, E, G)
+
 # Задание 2
 
 > Посмотрите на отношения: Order (ProductNo, ProductName, CustomerNo, CustomerName,OrderDate,UnitPrice, Quantity, SubTotal, Tax, Total)
@@ -22,6 +29,15 @@
 > 
 > * А) Определить нетривиальные функциональные зависимости в отношении
 > * Б) Каковы ключи-кандидаты?
+
+A) Получаем:
+  * ProductNo → ProductName
+  * ProductNo → Tax
+  * ProductNo → UnitPrice
+  * CustomerNo → CustomerName 
+  * SubTotal, Tax → Total
+  * UnitPrice, Quantity → SubTotal
+  * ProductNo, CustomerNo, OrderDate → UnitPrice, Quantity, SubTotal, Tax, Total
 
 # Задание 3
 
