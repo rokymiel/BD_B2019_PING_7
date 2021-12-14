@@ -1,0 +1,57 @@
+{
+    "books": [
+        {
+            "copy_number": 1234,
+            "ISBN": "KAJSK-1313AS-JH1233-DAKSD",
+            "year": 2013,
+            "name": "Приключения Мльщика",
+            "author": "Ермей Артемофф",
+            "pages_number": 124,
+            "publicher": {
+                "name": "CoolPrint",
+                "address": "Где-то, когда-то"
+            },
+            "categories": [
+                "Фантастика",
+                "Чертный юмор"
+            ]
+        }
+    ],
+    "borrowings": [
+        {
+            "returning_date": "22-11-2022",
+            "reader": {
+                "id": 1223,
+                "name": "ФФ",
+                "surname": "asd",
+                "address": "Где-то, когда-то",
+                "birth_date": "12-03-2001"
+            },
+            "book": {
+                "copy_number": 1234,
+                "ISBN": "KAJSK-1313AS-JH1233-DAKSD",
+                "year": 2013,
+                "name": "Приключения Мльщика",
+                "author": "Ермей Артемофф",
+                "pages_number": 124,
+                "publicher": {
+                    "name": "CoolPrint",
+                    "address": "Где-то, когда-то"
+                },
+                "categories": [
+                    "Фантастика",
+                    "Чертный юмор"
+                ]
+            }
+        }
+    ],
+    "readers": [
+        {
+            "id": 1223,
+            "name": "Олег",
+            "surname": "Тиньков",
+            "address": "Где-то, когда-то",
+            "birth_date": "25-12-1967"
+        }
+    ]
+}
